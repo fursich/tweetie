@@ -1,0 +1,22 @@
+
+<div class="wrapper timeline">
+  <h1>Tweetie#index</h1>
+
+  <%= form_for @tweet do |f| %>
+
+    <div class='form-group'>
+      <%= f.text_area :content, class: 'form-controller' %>
+    </div>
+    <%= f.submit 'つぶやく', class: 'btn btn-primary' %>
+  <% end %>
+
+  <% @tweets.each do |tweet| %>
+    <div class='tweet_content'>
+        <%= tweet.content %>
+    </div>
+    <div class='user_name'>
+        <%= tweet.user.name %>
+    </div>
+  <% end %>
+</div>
+
