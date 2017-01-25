@@ -13,7 +13,7 @@
   <%= link_to '戻る', root_path %>
 
     <div class='tweet_delete'>
-      <%= button_to 'つぶやきを削除する', method: :destroy, id: current_user.id %>
+      <%= button_to 'つぶやきを削除する', tweet_path(id: @tweet.id), method: :delete, class: 'btn btn-danger', data: {confirm: '削除していいですか？'} %>
     </div>
 </div>
 
