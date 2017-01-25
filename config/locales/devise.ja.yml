@@ -109,5 +109,6 @@ ja:
         password: パスワード
         password_confirmation: パスワード確認
         current_password: 現在のパスワード
+        remember_me: パスワードを記憶する
         image: 画像
         profile: プロフィール
