@@ -1,11 +1,13 @@
 
-<div class="wrapper timeline">
-  <h1>Tweetie#index</h1>
+<div class="timeline">
+  <div id='page-title'>
+    <h1>Tweetie#index</h1>
+  </div>
 
   <%= form_for @tweet do |f| %>
 
   <div class='form-group'>
-    <%= f.text_area :content, class: 'form-controller' %>
+    <%= f.text_area :content, class: 'form-control' %>
   </div>
   <%= f.submit 'つぶやく', class: 'btn btn-primary' %>
   <% end %>

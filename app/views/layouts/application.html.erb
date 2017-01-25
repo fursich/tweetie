@@ -9,22 +9,39 @@
   </head>
 
   <body>
-  
-    <%= link_to '設定変更', edit_user_registration_path %>
 
-    <% if user_signed_in? %>
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-    <% end %>
-    
-    <% if !alert.nil? %>
-      <%= alert %>
-    <% end %>
-    <% if !notice.nil? %>
-      <%= alert %>
-    <% end %>
-    
-    
-    <%= yield %>
+  <div id='header'>
+    <div class='header-links'>
+      <% if user_signed_in? %>
+        <%= link_to '設定変更', edit_user_registration_path %>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to '新規登録', new_user_registration_path %>
+        <%= link_to 'ログイン', new_user_session_path %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class='wrapper'>
+    <div class='row'>
+      <div class='col-md-2 col-xs-0'></div>
+      <div class='col-md-8 col-xs-12'>
+      
+        <% if !alert.nil? %>
+          <%= alert %>
+        <% end %>
+        <% if !notice.nil? %>
+          <%= alert %>
+        <% end %>
+        
+        
+        <%= yield %>
+
+      </div>
+      <div class='col-md-2 col-xs-0'></div>
+    </div>
+
+  </div>  
   
   </body>
 </html>

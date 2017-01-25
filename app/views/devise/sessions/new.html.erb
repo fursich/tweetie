@@ -1,16 +1,18 @@
-<div class='wrapper log_in'>
+<div class='log_in'>
 
-  <h2>ログイン</h2>
+  <div id='page-title'>
+    <h2>ログイン</h2>
+  </div>
   
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class='form-group'>
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, class: 'form-controller' %>
+      <%= f.email_field :email, autofocus: true, class: 'form-control' %>
     </div>
   
     <div class='form-group'>
       <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "off", class: 'form-controller' %>
+      <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
     </div>
   
     <% if devise_mapping.rememberable? -%>

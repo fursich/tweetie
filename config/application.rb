@@ -25,5 +25,8 @@ module Tweetie
 
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| %Q(#{html_tag}).html_safe }
     config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
+
+    config.autoload_paths += %W(#{config.root}/lib)
+    config.autoload_paths += Dir["#{config.root}/lib/**/"]
   end
 end
