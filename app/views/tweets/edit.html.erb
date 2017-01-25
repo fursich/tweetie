@@ -4,24 +4,16 @@
 
   <%= form_for @tweet do |f| %>
 
-  <div class='form-group'>
-    <%= f.text_area :content, class: 'form-controller' %>
-  </div>
-  <%= f.submit 'つぶやく', class: 'btn btn-primary' %>
+    <div class='form-group'>
+      <%= f.text_area :content, class: 'form-controller' %>
+    </div>
+    <%= f.submit '更新する', class: 'btn btn-primary' %>
   <% end %>
+  
+  <%= link_to '戻る', root_path %>
 
-  <% @tweets.each do |tweet| %>
-    <div class='tweet_content'>
-      <%= tweet.content %>
+    <div class='tweet_delete'>
+      <%= button_to 'つぶやきを削除する', method: :destroy, id: current_user.id %>
     </div>
-    <div class='user_name'>
-      <%= tweet.user.name %>
-    </div>
-    <% if tweet.user_id == current_user.id %>
-      <div class='tweet_edit'>
-        <%= link_to 'つぶやきを編集する', edit_tweet_path, id: current_user.id %>
-      </div>
-    <% end %>
-  <% end %>
 </div>
 

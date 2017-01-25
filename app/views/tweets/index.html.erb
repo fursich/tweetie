@@ -18,9 +18,9 @@
       <%= tweet.user.name %>
     </div>
     <div class='tweet_show_link'>
-      <%= link_to '詳細を見る', tweet_path(id: current_user.id) %>
+      <%= link_to '詳細を見る', tweet_path(id: tweet.id) %>
       <% if tweet.user_id == current_user.id %>
-        <%= link_to 'つぶやきを編集する', edit_tweet_path(id: current_user.id) %>
+        <%= link_to 'つぶやきを編集する', edit_tweet_path(id: tweet.id) %>
       <% end %>
     </div>
   <% end %>

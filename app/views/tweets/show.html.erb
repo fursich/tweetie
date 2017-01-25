@@ -13,7 +13,7 @@
   </div>
   <% if @tweet.user_id == current_user.id %>
     <div class='tweet_edit'>
-      <%= link_to 'つぶやきを編集する', edit_tweet_path, id: current_user.id %>
+      <%= link_to 'つぶやきを編集する', edit_tweet_path, id: @tweet.id %>
     </div>
   <% end %>
 
