@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      tweet:  ツイート
+    attributes:
+      tweet:
+        user_id: ユーザーID
+        reply_tweet_id: 返信ツイートID
+        content: コメント
+        created_at: 日時
