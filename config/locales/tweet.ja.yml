@@ -8,3 +8,7 @@ ja:
         reply_tweet_id: 返信ツイートID
         content: コメント
         created_at: 日時
+  tweet:
+    updated: 'つぶやきを変更しました'
+    deleted: 'つぶやきを削除しました'
+    save_failed: '投稿に失敗しました'

@@ -1,5 +1,5 @@
 
-<div class="wrapper timeline">
+<div class="wrapper tweet_edit">
   <h1>Tweetie#index</h1>
 
   <%= form_for @tweet do |f| %>
@@ -17,12 +17,11 @@
     <div class='user_name'>
       <%= tweet.user.name %>
     </div>
-    <div class='tweet_show_link'>
-      <%= link_to '詳細を見る', tweet_path(id: current_user.id) %>
-      <% if tweet.user_id == current_user.id %>
-        <%= link_to 'つぶやきを編集する', edit_tweet_path(id: current_user.id) %>
-      <% end %>
-    </div>
+    <% if tweet.user_id == current_user.id %>
+      <div class='tweet_edit'>
+        <%= link_to 'つぶやきを編集する', edit_tweet_path, id: current_user.id %>
+      </div>
+    <% end %>
   <% end %>
 </div>
 
