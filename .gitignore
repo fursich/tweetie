@@ -15,3 +15,8 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore carrierwave-related image files.
+/public/uploads
+/public/assets
+.DS_Store
