@@ -11,14 +11,16 @@ ja:
         password: "パスワード"
         password_confirmation: "パスワード(確認)"
         current_password: "現在のパスワード"
-        remember_me: "パスワードを記憶する"
+        remember_me: "ログイン情報を記憶する"
         profile: "プロフィール"
         image: "プロフィール画像"
 
   devise:
     failure:
+      already_authenticated: '既にログインしています。'
       user:
         unauthenticated: 'ログインしてください。'
+        not_found_in_database: 'メールアドレスもしくはパスワードが違います。'
 
   confirmations:
     confirmed: 'アカウントを登録しました。'
