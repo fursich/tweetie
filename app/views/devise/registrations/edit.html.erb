@@ -67,7 +67,7 @@
       <div class='col-md-8'>
 
         <div class='prof-image-box'>
-          <%= image_tag f.object.image.url, class: 'prof-image' %>
+          <%= image_tag f.object.image_url, class: 'prof-image' %>
         </div>
         <%= f.file_field :image, class: 'image-file-button' %>
         <%= f.hidden_field :image_cache %>

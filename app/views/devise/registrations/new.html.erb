@@ -52,6 +52,9 @@
         <%= f.label :image %>
       </div>
       <div class='col-md-8'>
+        <div class='prof-image-box'>
+          <%= image_tag f.object.image_url, class: 'prof-image' %>
+        </div>
         <%= f.file_field :image %>
         <%= f.hidden_field :image_cache %>
       </div>

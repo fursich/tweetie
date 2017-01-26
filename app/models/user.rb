@@ -9,8 +9,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :image, presence: true, file_size: { maximum: 500.kilobytes.to_i }
+  validates :image, file_size: { maximum: 500.kilobytes.to_i }
   validates :profile, presence: true, length: {maximum: 200}
          
-  mount_uploader :image, UserImageUploader         
+  mount_uploader :image, UserImageUploader
+  
+  def image_url
+    self.image? ? self.image.url : 'noimage.png'
+  end
 end
