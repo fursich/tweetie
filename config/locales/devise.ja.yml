@@ -16,6 +16,10 @@ ja:
         image: "プロフィール画像"
 
   devise:
+    sessions:
+      user:
+        signed_in: 'ログインしました。'
+        signed_out: 'ログアウトしました。'
     failure:
       already_authenticated: '既にログインしています。'
       user:

@@ -18,20 +18,23 @@ class TweetsController < ApplicationController
     @tweet.attributes = tweet_params
     if @tweet.save
       flash[:notice] = I18n.t('tweet.updated')
+      redirect_to action: :index
     else
-      flash[:alert] = I18n.t('tweet.save_failed')
+      flash[:alert] = @tweet.errors.full_messages
+      render :edit
     end
-    redirect_to action: :index
   end
 
   def create
     @tweet = Tweet.new
     @tweet.user_id = current_user.id
     @tweet.attributes = tweet_params
-    unless @tweet.save
-      flash[:alert] = I18n.t('tweet.save_failed')
+    if @tweet.save
+      redirect_to action: :index
+    else
+      flash[:alert] = @tweet.errors.full_messages
+      render :index
     end
-    redirect_to action: :index
   end
 
   def destroy

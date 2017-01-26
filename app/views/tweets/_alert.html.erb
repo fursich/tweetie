@@ -1,0 +1,6 @@
+
+<% if !flash[:alert].nil? %>
+    <% flash[:alert].each do |message| %>
+      <p class='alert'><%= message %></p>
+    <% end %>
+<% end %>

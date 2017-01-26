@@ -26,15 +26,10 @@
     <div class='row'>
       <div class='col-md-2 col-xs-0'></div>
       <div class='col-md-8 col-xs-12'>
-      
-        <% if !alert.nil? %>
-          <%= alert %>
-        <% end %>
-        <% if !notice.nil? %>
-          <%= alert %>
-        <% end %>
-        
-        
+
+          
+        <p class='notice'><%= notice if flash[:notice].present? %></p>
+
         <%= yield %>
 
       </div>
