@@ -10,33 +10,7 @@
 
   <body>
 
-  <div id='header'>
-    <div class='header-links'>
-      <% if user_signed_in? %>
-        <%= link_to '設定変更', edit_user_registration_path %>
-        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to 'ログイン', new_user_session_path %>
-        <%= link_to '新規登録', new_user_registration_path %>
-      <% end %>
-    </div>
-  </div>
+    <%= yield %>
 
-  <div class='wrapper'>
-    <div class='row'>
-      <div class='col-md-2 col-xs-0'></div>
-      <div class='col-md-8 col-xs-12'>
-
-          
-        <p class='notice'><%= notice if flash[:notice].present? %></p>
-
-        <%= yield %>
-
-      </div>
-      <div class='col-md-2 col-xs-0'></div>
-    </div>
-
-  </div>  
-  
   </body>
 </html>

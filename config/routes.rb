@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
   root to: 'tweets#index'
 
   devise_for :users
   
-  resources :tweets
+  resources :tweets, except: :show
+  
+  resources :users, only: :show
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,21 +1,31 @@
 
-<div id="tweet_edit">
+<%= render 'partials/header', srch: false %>
 
-  <%= render 'tweets/alert' %>
+<div class='wrapper'>
 
+  <div class='row'>
+    <div class='col-md-2 col-xs-0'></div>
+    <div class='col-md-8 col-xs-12'>
+
+      <div id="tweet_edit">
+      
+        <%= render 'partials/alert' %>
   
-  <%= form_for @tweet do |f| %>
-
-    <div class='form-group'>
-      <%= f.text_area :content, class: 'form-control' %>
+    
+        <%= form_for @tweet do |f| %>
+      
+          <div class='form-group'>
+            <%= f.text_area :content, class: 'form-control' %>
+          </div>
+          <%= f.submit '更新する', class: 'btn btn-primary' %>
+        <% end %>
+        
+        <%= link_to '戻る', root_path %>
+      
+        <div class='tweet_delete'>
+          <%= button_to 'つぶやきを削除する', tweet_path(id: @tweet.id), method: :delete, class: 'btn btn-danger', data: {confirm: '削除していいですか？'} %>
+        </div>
+      </div>
     </div>
-    <%= f.submit '更新する', class: 'btn btn-primary' %>
-  <% end %>
-  
-  <%= link_to '戻る', root_path %>
-
-    <div class='tweet_delete'>
-      <%= button_to 'つぶやきを削除する', tweet_path(id: @tweet.id), method: :delete, class: 'btn btn-danger', data: {confirm: '削除していいですか？'} %>
-    </div>
-</div>
-
+  </div>    
+</div>    

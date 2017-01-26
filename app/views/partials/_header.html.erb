@@ -1,0 +1,39 @@
+
+<div id='header'>
+  
+  <div class='header-container clearfix'>
+    <div class='header-logo'>
+      LOGO
+    </div>
+  
+    <div class='header-links'>
+      <% if user_signed_in? %>
+        <%= link_to '設定変更', edit_user_registration_path, class: 'link link-1' %>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'link link-2' %>
+      <% else %>
+        <%= link_to 'ログイン', new_user_session_path, class: 'link link-1' %>
+        <%= link_to '新規登録', new_user_registration_path, class: 'link link-2' %>
+      <% end %>
+    </div>
+
+    <% if user_signed_in? %>
+      <div class='account-name'>
+        <%= link_to user_path(current_user.id) do %>
+          @<%= current_user.name %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if srch %>
+      <div class='search-box'>
+        <%= search_form_for @q, url: request.fullpath, method: :get do |f| %>
+          <%= f.search_field :content_cont %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
+
+

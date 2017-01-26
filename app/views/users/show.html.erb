@@ -10,15 +10,6 @@
       <div id="timeline">
       
         <%= render 'partials/alert' %>
-
-        <div class='new-tweet-container'>
-          <%= form_for @tweet do |f| %>
-            <div class='form-group new-tweet-box'>
-              <%= f.text_area :content, rows: '4', placeholder: '（140文字以内で投稿）', class: 'form-control' %>
-            </div>
-            <%= f.submit '投稿', class: 'btn submit-btn' %>
-          <% end %>
-        </div>
       
         <% @tweets.each do |tweet| %>
           <%= render 'partials/per_tweet', t: tweet %>

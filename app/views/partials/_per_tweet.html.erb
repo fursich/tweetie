@@ -1,27 +1,31 @@
 
 <% if t.present? %>
 
-  <div class='per_tweet'>
+  <div class='per-tweet row'>
     
-    <div class='user_image'>
+    <div class='user-image col-xs-2'>
       <div class='prof-image-box'>
         <%= image_tag t.user.image_url, class: 'prof-image' %>
       </div>
+    </div>
 
-      <div class='tweet_header'>
+    <div class='user-tweet col-xs-10'>
+      <div class='tweet-header'>
 
-        <span class='user_name'>
-          <%= t.user.name %>
+        <span class='user-name'>
+          <%= link_to user_path(t.user.id) do %>
+            @<%= t.user.name %>
+          <% end %>
         </span>
 
-        <span class='tweeted_datetime'>
+        <span class='tweeted-datetime'>
           <%= link_to tweet_path(id: t.id) do %>
-            <%= t.created_at %>
+            ( <%= t.created_at %> )
           <% end %>
         </span>
       </div>
 
-      <div class='tweet_content'>
+      <div class='tweet-content'>
         <% if t.user_id == current_user.id %>
           <%= link_to edit_tweet_path(id: t.id) do %>
             <%= t.content %>

@@ -5,12 +5,10 @@ class TweetsController < ApplicationController
 
   def index
     @tweet = Tweet.new
-    @tweets = Tweet.order('created_at DESC')
+    @q = Tweet.search(params[:q])
+    @tweets = @q.result.page(params[:page]).per(10).order('created_at DESC')
   end
   
-  def show
-  end
-
   def edit
   end
   def update

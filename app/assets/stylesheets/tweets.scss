@@ -1,4 +1,94 @@
+
+#header {
+    height: 35px;
+    margin: 5px auto;
+    border-bottom: 1px solid #ccc;
+
+    .header-container {
+        margin: 0 20px;
+        
+
+        .header-logo {
+            margin-top: 5px;
+            float: left;
+            font-size: 90%;
+        }
+        .search-box {
+            float: right;
+            margin-right: 20px;
+        }
+        .account-name {
+            margin-top: 5px;
+            margin-right: 20px;
+            font-size: 90%;
+            float: right;
+        }
+        .header-links {
+            margin-top: 5px;
+            font-size: 90%;
+            float: right;
+            .link {
+                margin-right: 20px;
+                
+            }
+        }
+    }
+}
+
 .wrapper {
     width: 800px;
     margin: 0 auto;
+
+}
+
+#timeline {
+    .new-tweet-container {
+        text-align: right;
+        .new-tweet-box {
+            margin: 30px 0 0 0;
+        }
+        .submit-btn {
+            margin: 0;
+            font-size: 90%;
+            color: #FFF;
+        }
+    }
+    .per-tweet {
+        height: 70px;
+        margin: 10px 0 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        background-color: #F0FFF0;
+        font-size: 90%;
+
+        .user-image {
+            .prof-image-box {
+                position: relative;
+                width: 60px;
+                height: 60px;
+                overflow: hidden;
+
+                .prof-image {
+                    position: absolute;
+                    top: 8px;
+                    height: 100%;
+                    width: auto;
+                    margin: 0 auto;
+                }
+            }
+        }
+        .user-tweet {
+            .tweet-header {
+                .user-name {
+                    font-size: 60%;
+                }
+                .tweeted-datetime {
+                    font-size: 60%;
+                }
+            }
+            .tweet-content {
+                margin-top: 2px;
+            }
+        }
+    }
 }
