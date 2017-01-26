@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :image, presence: true, file_size: { maximum: 500.kilobytes.to_i }
-  validates :profile, presence: true
+  validates :profile, presence: true, length: {maximum: 200}
          
   mount_uploader :image, UserImageUploader         
 end
