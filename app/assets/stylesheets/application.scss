@@ -2,5 +2,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@import "common.scss";
+@import "devise.scss";
 @import "users.scss";
 @import "tweets.scss";

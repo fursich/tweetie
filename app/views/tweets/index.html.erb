@@ -3,16 +3,16 @@
 
 <div class='container-fluid'>
 
-  <div class='row'>
+  <div class='row main-row'>
     <div class='col-sm-2'></div>
-    <div class='col-sm-8 col-xs-12'>
+    <div class='col-sm-8 col-xs-12 main-container'>
 
-      <div class="timeline">
-      
         <%= render 'partials/alert' %>
 
         <%= render 'partials/new_tweet', t: @tweet %>
 
+      <div class="timeline">
+      
         <div class='tweet-container'>
           <% @tweets.each do |tweet| %>
             <%= render 'partials/per_tweet', t: tweet %>

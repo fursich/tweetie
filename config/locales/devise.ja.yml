@@ -23,6 +23,12 @@ ja:
     registrations:
       destroyed: 'アカウントを削除しました。またのご利用をお待ちしております。'
       signed_up: 'ようこそ！ アカウント登録を受け付けました。'
+      user:
+        updated: 'アカウント情報を変更しました。'
+    password:
+      updated: 'パスワードを変更しました。'
+      updated_not_active: 'パスワードが正しく変更されました。'
+
     failure:
       already_authenticated: '既にログインしています。'
       user:

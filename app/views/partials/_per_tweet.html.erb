@@ -28,10 +28,10 @@
       <div class='tweet-content'>
         <% if t.user_id == current_user.id %>
           <%= link_to edit_tweet_path(id: t.id) do %>
-            <%= truncate(t.content, length: 90) %>
+            <%= truncate(t.content, length: 100) %>
           <% end %>
         <% else %>
-            <%= truncate(t.content, length: 90) %>
+            <%= truncate(t.content, length: 100) %>
         <% end %>
         
       </div>

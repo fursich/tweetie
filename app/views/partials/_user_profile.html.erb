@@ -1,0 +1,41 @@
+
+<% if u.present? %>
+
+  <div class='row user-profile'>
+    
+    <div class='user-image col-sm-3 col-xs-5'>
+      <div class='prof-image-box'>
+        <%= image_tag u.image_url, class: 'prof-image' %>
+      </div>
+    </div>
+
+    <div class='user-prof col-sm-9 col-xs-7'>
+
+      <div class='prof-header'>
+  
+        <span class='user-name'>
+          <%= link_to user_path(u.id) do %>
+            @<%= u.name %><br class='visible-xs-inline'>
+          <% end %>
+        </span>
+  
+        <span class='user-login-datetime'>
+            最終ログイン日：<br class='visible-xs-inline'>
+            <%= u.last_sign_in_at.strftime("%Y-%m-%d %H:%M:%S") %>
+        </span>
+  
+        </div>
+  
+      <div class='user-prof-text'>
+        <div class='prof-title'>
+          プロフィール
+        </div>
+        <div class='prof-body'>
+          <%= u.profile %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+<% end %>
+

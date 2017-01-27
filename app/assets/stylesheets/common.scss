@@ -1,0 +1,97 @@
+body {
+    background-color: #d4f2c9;
+}
+
+
+#header {
+    width: 100%;
+    .navbar{
+        background-color: #588A62;
+        .header-logo-box {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            .header-logo {
+                height: 50px;
+            }
+        }
+        ul.nav li a:link {
+            text-decoration: none;
+            color: #ada;
+        }
+        ul.nav li a:visited {
+            text-decoration: none;
+            color: #ada;
+        }
+        ul.nav li a:hover {
+            text-decoration: none;
+            font-weight: bold;
+            color: #ada;
+        }
+        span.icon-bar {
+            background-color: #5a5;
+        }
+
+        @media (max-width: 768px) {
+            .search-area {
+                padding: 0;
+                position: absolute;
+                top: 3px;
+                right: 90px;
+                .search-box{
+                    width: 150px;
+                }
+            }
+            .header-btn {
+                margin-right: 0;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .search-area {
+                position: absolute;
+                top: 3px;
+                right: 320px;
+                .search-box {
+                    margin-right: 5px;
+                    width: 200px;
+                }
+                .search-btn {
+                    height: 26px;
+                    font-size: 80%;
+                    background-color: #eff;
+                    color: #242;
+                }
+            }
+            .header-links {
+                position: absolute;
+                top: 0;
+                right: 0px;
+
+            }
+        }
+    }
+}
+
+
+.devise_error {
+    margin: 10px 0 30px 0;
+    padding: 0;
+    color: #f24;
+    #error_explanation h2 {
+        font-size: 1em;
+        margin-left: 20px;
+        font-weight: bold;
+    }
+}
+
+.alert {
+    margin: 10px 0 30px 0;
+    padding: 0;
+    color: #F24;
+}
+.notice {
+    margin: 10px 0 30px 0;
+    padding: 0;
+    color: #666;
+}
