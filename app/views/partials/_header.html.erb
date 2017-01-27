@@ -29,8 +29,8 @@
           </ul>
         </div>
   
-        <% if user_signed_in? && srch %>
-          <%= search_form_for @q, url: request.fullpath, method: :get, class:"navbar-form navbar-left search-area" do |f| %>
+        <% if user_signed_in? && srchpath %>
+          <%= search_form_for @q, url: srchpath, method: :get, class:"navbar-form navbar-left search-area" do |f| %>
             <%= f.search_field :content_cont, class: 'search-box' %>
             <%= f.submit "検索", class: 'btn search-btn hidden-xs' %>
           <% end %>

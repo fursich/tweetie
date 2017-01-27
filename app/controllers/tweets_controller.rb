@@ -2,15 +2,18 @@ class TweetsController < ApplicationController
 
   before_action :authenticate_user!
   before_action :find_tweet, only: [:show, :edit, :update, :destroy]
-
+  before_action :init_srch_query, only: [:index, :show, :edit]
+  
   def index
     @tweet = Tweet.new
-    @q = Tweet.search(params[:q])
     @tweets = @q.result.page(params[:page]).per(10).order('created_at DESC')
   end
   
   def edit
   end
+  def show
+  end
+
   def update
     @tweet.user_id = current_user.id
     @tweet.attributes = tweet_params
@@ -50,6 +53,9 @@ class TweetsController < ApplicationController
   end
   def find_tweet
     @tweet = Tweet.find(params[:id])
+  end
+  def init_srch_query
+    @q = Tweet.search(params[:q])
   end
 
 end

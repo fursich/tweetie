@@ -1,7 +1,7 @@
 
-<%= render 'partials/header', srch: true %>
+<%= render 'partials/header', srchpath: user_path %>
 
-<div class='wrapper'>
+<div class='container-fruid'>
 
   <div class='row'>
     <div class='col-md-2 col-xs-0'></div>
@@ -11,15 +11,17 @@
       
         <%= render 'partials/alert' %>
       
-        <% @tweets.each do |tweet| %>
-          <%= render 'partials/per_tweet', t: tweet %>
-        <% end %>
+        <div class='tweet-container'>
+          <% @tweets.each do |tweet| %>
+            <%= render 'partials/per_tweet', t: tweet %>
+          <% end %>
+        </div>
         
         <%= paginate @tweets %>
       </div>
 
     </div>
-    <div class='col-md-2 col-xs-0'></div>
+    <div class='col-md-2'></div>
   </div>
 
 </div>  
