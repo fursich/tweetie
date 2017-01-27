@@ -6,12 +6,13 @@ class TweetsController < ApplicationController
   
   def index
     @tweet = Tweet.new
-    @tweets = @q.result.page(params[:page]).per(10).order('created_at DESC')
+    @tweets = @q.result.first_tweets.page(params[:page]).per(10).order('created_at DESC')
   end
   
   def edit
   end
   def show
+    @new_retweet=Tweet.new
   end
 
   def update
@@ -49,7 +50,7 @@ class TweetsController < ApplicationController
   private
 
   def tweet_params
-    params.require(:tweet).permit(:content, :reply_id)  # 後で拡張する場合に備えてreply_idも通しておく
+    params.require(:tweet).permit(:content, :retweet_id)
   end
   def find_tweet
     @tweet = Tweet.find(params[:id])

@@ -7,9 +7,9 @@
     <div class='col-sm-2'></div>
     <div class='col-sm-8 col-xs-12 main-container'>
 
-        <%= render 'partials/alert' %>
+      <%= render 'partials/alert' %>
 
-        <%= render 'partials/new_tweet', t: @tweet %>
+      <%= render 'partials/new_tweet', t: @tweet, reply_to: false %>
 
       <div class="timeline">
       

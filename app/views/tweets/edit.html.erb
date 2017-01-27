@@ -12,7 +12,7 @@
 
       <div class="timeline">
   
-        <%= render 'partials/new_tweet', t: @tweet %>
+        <%= render 'partials/new_tweet', t: @tweet, reply_to: false %>
     
         <div class='tweet-del-btn'>
           <%= button_to 'つぶやきを削除', tweet_path(id: @tweet.id), method: :delete, class: 'btn btn-danger', data: {confirm: '削除していいですか？'} %>

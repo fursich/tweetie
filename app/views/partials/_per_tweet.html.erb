@@ -28,14 +28,26 @@
       <div class='tweet-content'>
         <% if t.user_id == current_user.id %>
           <%= link_to edit_tweet_path(id: t.id) do %>
-            <%= truncate(t.content, length: 100) %>
+            <%= t.content %>
           <% end %>
         <% else %>
-            <%= truncate(t.content, length: 100) %>
+            <%= t.content %>
         <% end %>
         
       </div>
-
     </div>
+
   </div>
+
+  <% t.retweets.each do |retweet| %>
+    <div class='row'>
+      <div class='col-xs-1'></div>
+      <div class='col-xs-11'>
+        <%= render 'partials/per_tweet', t: retweet, reply_to: t.id %>
+      </div>
+    </div>
+  <% end %>
+
+    
+
 <% end %>

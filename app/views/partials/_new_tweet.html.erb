@@ -5,6 +5,9 @@
     <%= form_for t do |f| %>
       <div class='form-group new-tweet-box'>
         <%= f.text_area :content, rows: '4', placeholder: '（140文字以内で投稿）', class: 'form-control' %>
+        <% if reply_to %>
+          <%= f.hidden_field :retweet_id, value: reply_to %>
+        <% end %>
       </div>
       <%= f.submit '投稿', class: 'btn submit-btn' %>
     <% end %>
