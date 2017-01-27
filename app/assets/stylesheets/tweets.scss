@@ -121,7 +121,7 @@ body {
                 top: 3px;
                 right: 90px;
                 .search-box{
-                    width: 170px;
+                    width: 150px;
                 }
             }
             .header-btn {
@@ -212,30 +212,11 @@ body {
                 margin: 0;
                 padding: 0;
     
-                @media (max-width: 768px) {
-                    .prof-image-box {
-                        position: relative;
-                        width: 60px;
-                        height: 60px;
-                        overflow: hidden;
-        
-                        .prof-image {
-                            position: absolute;
-                            top: 0px;
-                            left: 0px;
-                            height: 100%;
-                            width: auto;
-                            margin: 0 auto;
-                        }
-                    }
-                }
-    
-                @media (min-width: 769px) {
                     .prof-image-box {
                         position: relative;
                         left: 0;
-                        width: 40px;
-                        height: 40px;
+                        width: 50px;
+                        height: 50px;
                         overflow: hidden;
                         border-radius: 8px;
         
@@ -248,8 +229,12 @@ body {
                             margin: 0 auto;
                         }
                     }
+
+            }
+            @media (max-width: 768px) {
+                .user-tweet {
+                    padding-left: 40px;
                 }
-    
             }
             .user-tweet {
                 overflow-wrap: break-word;
