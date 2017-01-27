@@ -3,51 +3,60 @@
 
 <div class='tw-auth tw-login'>
 
-  <div class='page-title'>
-    ログインする
-  </div>
-  
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class='row'>
+    <div class='col-sm-2'></div>
+    <div class='col-sm-8 col-xs-12'>
 
-    <div class="form-group row">
-      <div class='col-md-4 user-form-label'>
-        <%= f.label :email %>
+      <div class='page-title'>
+        ログインする
       </div>
-      <div class='col-md-8'>
-        <%= f.email_field :email, autofocus: true, class: 'form-control' %>
-      </div>
-    </div>
-  
-    <div class="form-group row">
-      <div class='col-md-4 user-form-label'>
-        <%= f.label :password %>
-      </div>
-      <div class='col-md-8'>
-        <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
-      </div>
-    </div>
-  
-    <% if devise_mapping.rememberable? -%>
-      <div class="form-group row">
-        <div class='col-md-4 user-form-label'></div>
-        <div class='col-md-8'>
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
+
+        <%= render 'partials/alert' %>
+      
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+        <div class="form-group row">
+          <div class='col-md-4 user-form-label'>
+            <%= f.label :email %>
+          </div>
+          <div class='col-md-8'>
+            <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+          </div>
         </div>
-      </div>
-    <% end -%>
-  
-    <div class="form-group row">
-      <div class='col-md-4 user-form-label'></div>
-      <div class='col-md-8'>
-        <div class="actions">
-          <%= f.submit "ログイン", class: 'btn btn-primary' %>
+      
+        <div class="form-group row">
+          <div class='col-md-4 user-form-label'>
+            <%= f.label :password %>
+          </div>
+          <div class='col-md-8'>
+            <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+          </div>
         </div>
-        <div class='links'>
-          <%= render "devise/shared/links" %>
+      
+        <% if devise_mapping.rememberable? -%>
+          <div class="form-group row">
+            <div class='col-md-4 user-form-label'></div>
+            <div class='col-md-8'>
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          </div>
+        <% end -%>
+      
+        <div class="form-group row">
+          <div class='col-md-4 user-form-label'></div>
+          <div class='col-md-8'>
+            <div class="actions">
+              <%= f.submit "ログイン", class: 'btn oath-btn' %>
+            </div>
+            <div class='links'>
+              <%= render "devise/shared/links" %>
+            </div>
+          </div>
         </div>
-      </div>
+      <% end %>
+
     </div>
-  <% end %>
+  </div>
 
 </div>

@@ -20,6 +20,9 @@ ja:
       user:
         signed_in: 'ログインしました。'
         signed_out: 'ログアウトしました。'
+    registrations:
+      destroyed: 'アカウントを削除しました。またのご利用をお待ちしております。'
+      signed_up: 'ようこそ！ アカウント登録を受け付けました。'
     failure:
       already_authenticated: '既にログインしています。'
       user:

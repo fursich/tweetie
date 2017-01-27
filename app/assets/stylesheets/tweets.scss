@@ -2,6 +2,89 @@
 body {
     background-color: #d4f2c9;
 }
+
+.tw-auth {
+    margin: 0 15px 40px 15px;
+    color: #444;
+
+    a:link {
+        text-decoration: none;
+        color: #444;
+    }
+    a:visited {
+        text-decoration: none;
+        color: #444;
+    }
+    a:hover {
+        text-decoration: none;
+        font-weight: bold;
+        color: #131;
+    }
+
+    .page-title {
+        margin: 20px 0 30px 0;
+        text-align: center;
+        color: #565;
+        font-size: 180%;
+        font-weight: bold;
+    }
+    .pw-reset-msg {
+        font-size: 90%;
+        font-weight: bold;
+        color: #555;
+        margin-left: 20px;
+        margin-right: 30px;
+    }
+    .oath-btn {
+        margin-top: 5px;
+        color: #FFF;
+        background: linear-gradient(#689a72 0%,#406f40 100%);
+    }
+    
+
+    .prof-image-box {
+        margin: 10px 0;
+        position: relative;
+        left: 0;
+        width: 50px;
+        height: 50px;
+        overflow: hidden;
+        border-radius: 8px;
+
+        .prof-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            margin: 0 auto;
+        }
+    }
+    .user-unregister {
+        float: right;
+        padding: 15px 15px;
+        border: 1px solid #999;
+        border-radius: 4px;
+
+        color: #222;
+        text-align: center;
+        font-size: 80%;
+        .btn {
+            margin-top: 20px;
+            font-size: 60%;
+            font-weight: bold;
+            height: 25px;
+            width: 100px;
+        }
+    }
+    .back-link {
+        margin-top: 15px;
+    }
+
+    
+    
+}
+
 #header {
     width: 100%;
     .navbar{
@@ -26,6 +109,9 @@ body {
             text-decoration: none;
             font-weight: bold;
             color: #ada;
+        }
+        span.icon-bar {
+            background-color: #5a5;
         }
 
         @media (max-width: 768px) {
@@ -70,21 +156,31 @@ body {
 }
 
 
+.devise_error {
+    margin: 10px 0 30px 0;
+    padding: 0;
+    color: #f24;
+    #error_explanation h2 {
+        font-size: 1em;
+        margin-left: 20px;
+        font-weight: bold;
+    }
+}
 
 .alert {
-    margin: 10px 0 0 0;
+    margin: 10px 0 30px 0;
     padding: 0;
     color: #F24;
-    font-weight: bold;
 }
 .notice {
-    margin: 10px 0 0 0;
+    margin: 10px 0 30px 0;
     padding: 0;
     color: #666;
 }
 
 
 #timeline {
+    margin: 0 5px 0 5px;
     .new-tweet-container {
         text-align: right;
         .new-tweet-box {
@@ -205,7 +301,7 @@ body {
         }
         li.active a {
             color: #e0f5e0;
-            background-color: #25352f;
+            background-color: #455f4f;
             border-color: #355f45;
         }
     }
