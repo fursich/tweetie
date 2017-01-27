@@ -179,7 +179,7 @@ body {
 }
 
 
-#timeline {
+.timeline {
     margin: 0 5px 0 5px;
     .new-tweet-container {
         text-align: right;
@@ -269,6 +269,13 @@ body {
                     margin-top: 4px;
                 }
             }
+        }
+    }
+    .tweet-del-btn {
+        text-align: right;
+        .btn {
+            margin-top: 30px;
+            font-size: 80%;
         }
     }
     .pagination {

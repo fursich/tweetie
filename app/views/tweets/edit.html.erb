@@ -1,31 +1,25 @@
 
 <%= render 'partials/header', srchpath: tweets_path %>
 
-<div class='wrapper'>
+<div class='container-fluid'>
 
   <div class='row'>
-    <div class='col-md-2 col-xs-0'></div>
-    <div class='col-md-8 col-xs-12'>
+    <div class='col-sm-2'></div>
+    <div class='col-sm-8 col-xs-12'>
 
-      <div id="tweet_edit">
+      <div class="timeline">
       
         <%= render 'partials/alert' %>
   
+        <%= render 'partials/new_tweet', t: @tweet %>
     
-        <%= form_for @tweet do |f| %>
-      
-          <div class='form-group'>
-            <%= f.text_area :content, class: 'form-control' %>
-          </div>
-          <%= f.submit '更新する', class: 'btn btn-primary' %>
-        <% end %>
-        
-        <%= link_to '戻る', root_path %>
-      
-        <div class='tweet_delete'>
-          <%= button_to 'つぶやきを削除する', tweet_path(id: @tweet.id), method: :delete, class: 'btn btn-danger', data: {confirm: '削除していいですか？'} %>
+        <div class='tweet-del-btn'>
+          <%= button_to 'つぶやきを削除', tweet_path(id: @tweet.id), method: :delete, class: 'btn btn-danger', data: {confirm: '削除していいですか？'} %>
         </div>
+
       </div>
     </div>
+    <div class='col-sm-2'></div>
+    
   </div>    
 </div>    
