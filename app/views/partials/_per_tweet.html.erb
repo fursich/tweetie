@@ -3,13 +3,13 @@
 
   <div class='per-tweet row'>
     
-    <div class='user-image col-xs-2'>
+    <div class='user-image col-xs-1'>
       <div class='prof-image-box'>
         <%= image_tag t.user.image_url, class: 'prof-image' %>
       </div>
     </div>
 
-    <div class='user-tweet col-xs-10'>
+    <div class='user-tweet col-xs-11'>
       <div class='tweet-header'>
 
         <span class='user-name'>
@@ -20,7 +20,7 @@
 
         <span class='tweeted-datetime'>
           <%= link_to tweet_path(id: t.id) do %>
-            ( <%= t.created_at %> )
+            ( <%= t.created_at.strftime("%Y-%m-%d %H:%M:%S") %> )
           <% end %>
         </span>
       </div>
@@ -28,10 +28,10 @@
       <div class='tweet-content'>
         <% if t.user_id == current_user.id %>
           <%= link_to edit_tweet_path(id: t.id) do %>
-            <%= t.content %>
+            <%= truncate(t.content, length: 90) %>
           <% end %>
         <% else %>
-            <%= t.content %>
+            <%= truncate(t.content, length: 90) %>
         <% end %>
         
       </div>

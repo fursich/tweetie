@@ -1,0 +1,124 @@
+
+body {
+    margin: 0;
+}
+#header {
+    height: 35px;
+    margin: 0 auto;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 25px;
+    
+    background: linear-gradient(#c0f0e0,#d5fff0);
+
+    .header-container {
+        margin: 0px 20px;
+        
+
+        .header-logo {
+            margin-top: 10px;
+            float: left;
+            font-size: 90%;
+        }
+        .search-area {
+            float: right;
+            margin-right: 40px;
+            margin-top: 4px;
+
+            .search-box {
+                width: 200px;
+                margin-right: 10px;
+                border-radius: 3px;
+            }
+            .search-btn {
+                background-color: #ddd;
+                color: #666;
+                font-size: 80%;
+                border-radius: 3px;
+            }
+        }
+        .account-name {
+            margin-top: 10px;
+            margin-right: 20px;
+            width: 80px;
+            font-size: 90%;
+            float: right;
+        }
+        .header-links {
+            margin-top: 10px;
+            font-size: 90%;
+            float: right;
+            .link {
+                margin-right: 10px;
+                
+            }
+        }
+    }
+}
+
+.alert {
+    margin: 10px 0 0 0;
+    padding: 0;
+    color: #F24;
+    font-weight: bold;
+}
+.notice {
+    margin: 10px 0 0 0;
+    padding: 0;
+    color: #666;
+}
+
+
+#timeline {
+    .new-tweet-container {
+        text-align: right;
+        .new-tweet-box {
+            margin: 25px 0 0 0;
+        }
+        .submit-btn {
+            margin: 0;
+            font-size: 90%;
+            color: #FFF;
+            background: linear-gradient(#999,#bbb);
+        }
+    }
+    .per-tweet {
+        min-height: 70px;
+        margin: 10px 0 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #F0FFF0;
+        font-size: 90%;
+
+        .user-image {
+            .prof-image-box {
+                position: relative;
+                width: 60px;
+                height: 60px;
+                overflow: hidden;
+
+                .prof-image {
+                    position: absolute;
+                    top: 8px;
+                    height: 100%;
+                    width: auto;
+                    margin: 0 auto;
+                }
+            }
+        }
+        .user-tweet {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            .tweet-header {
+                .user-name {
+                    font-size: 60%;
+                }
+                .tweeted-datetime {
+                    font-size: 60%;
+                }
+            }
+            .tweet-content {
+                margin-top: 2px;
+            }
+        }
+    }
+}

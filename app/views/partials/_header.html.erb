@@ -1,39 +1,42 @@
 
 <div id='header'>
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
   
-  <div class='header-container clearfix'>
-    <div class='header-logo'>
-      LOGO
-    </div>
+        <a class="navbar-brand header-logo-box" href="#">
+          <%= image_tag "tweetie_logo.png", class: 'header-logo' %>
+        </a>
   
-    <div class='header-links'>
-      <% if user_signed_in? %>
-        <%= link_to '設定変更', edit_user_registration_path, class: 'link link-1' %>
-        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'link link-2' %>
-      <% else %>
-        <%= link_to 'ログイン', new_user_session_path, class: 'link link-1' %>
-        <%= link_to '新規登録', new_user_registration_path, class: 'link link-2' %>
-      <% end %>
+        <button type="button" class="navbar-toggle collapsed navbar-right header-btn" data-toggle="collapse" data-target="#header-nav-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="header-nav-collapse">
+          <ul class="nav navbar-nav header-links">
+            <% if user_signed_in? %>
+  
+              <li><%= link_to "@#{current_user.name}", user_path(current_user.id), class: 'account-name' %></li>
+              <li><%= link_to '設定変更', edit_user_registration_path, class: 'link link-1' %></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'link link-2' %></li>
+            <% else %>
+              <li><%= link_to 'ログイン', new_user_session_path, class: 'link link-1' %></li>
+              <li><%= link_to '新規登録', new_user_registration_path, class: 'link link-2' %></li>
+            <% end %>
+          </ul>
+        </div>
+  
+        <% if user_signed_in? && srch %>
+          <%= search_form_for @q, url: request.fullpath, method: :get, class:"navbar-form navbar-left search-area" do |f| %>
+            <%= f.search_field :content_cont, class: 'search-box' %>
+            <%= f.submit "検索", class: 'btn search-btn hidden-xs' %>
+          <% end %>
+        <% end %>
+  
     </div>
+  </nav>
 
-    <% if user_signed_in? %>
-      <div class='account-name'>
-        <%= link_to user_path(current_user.id) do %>
-          @<%= current_user.name %>
-        <% end %>
-      </div>
-    <% end %>
-
-    <% if srch %>
-      <div class='search-box'>
-        <%= search_form_for @q, url: request.fullpath, method: :get do |f| %>
-          <%= f.search_field :content_cont %>
-          <%= f.submit %>
-        <% end %>
-      </div>
-    <% end %>
-
-  </div>
 </div>
-
-

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   
-  resources :tweets, except: :show
+  resources :tweets
   
   resources :users, only: :show
   

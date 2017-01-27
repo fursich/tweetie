@@ -18,7 +18,7 @@ class TweetsController < ApplicationController
       flash[:notice] = I18n.t('tweet.updated')
       redirect_to action: :index
     else
-      flash[:alert] = @tweet.errors.full_messages
+      flash.now[:alert] = @tweet.errors.full_messages
       render :edit
     end
   end
@@ -30,7 +30,9 @@ class TweetsController < ApplicationController
     if @tweet.save
       redirect_to action: :index
     else
-      flash[:alert] = @tweet.errors.full_messages
+      flash.now[:alert] = @tweet.errors.full_messages
+      @q = Tweet.search(params[:q])
+      @tweets = @q.result.page(params[:page]).per(10).order('created_at DESC')
       render :index
     end
   end

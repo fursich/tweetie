@@ -1,6 +1,12 @@
 
-<% if !flash[:alert].nil? %>
+<p class='notice'><%= notice if flash[:notice].present? %></p>
+
+<% if flash[:alert].present? %>
+  <% if flash[:alert].is_a?(String) %>
+    <p class='alert'><%= alert %></p>
+  <% elsif flash[:alert].is_a?(Array) %>
     <% flash[:alert].each do |message| %>
       <p class='alert'><%= message %></p>
     <% end %>
+  <% end %>
 <% end %>
