@@ -21,8 +21,6 @@ ActiveRecord::Schema.define(version: 20170125030934) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "tweets", ["retweet_id"], name: "index_tweets_on_retweet_id", unique: true
-
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
