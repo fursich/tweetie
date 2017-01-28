@@ -1,5 +1,5 @@
 
-<%= render 'partials/header', srchpath: tweets_path %>
+<%= render 'partials/header', srchpath: search_tweets_path %>
 
 <div class='container-fluid'>
 
@@ -11,7 +11,7 @@
 
       <div class="timeline">
         <div class='tweet-container'>
-          <%= render 'partials/per_tweet', t: @tweet %>
+          <%= render 'partials/trace_tweets', t: @tweet %>
         </div>
       </div>
 

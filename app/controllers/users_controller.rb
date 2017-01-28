@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
-    @q = Tweet.search(params[:q])
-    @tweets = @q.result.where('user_id=?',params[:id]).first_tweets.page(params[:page]).per(10).order('created_at DESC')
-    # first_tweetsは､オリジナルのTweet(返信ではないもの)だけを集めるTweetモデルのscope
+    @user = User.includes(:tweets).find(params[:id])
+    @q = @user.tweets.includes(:user).search(params[:q])
+    @tweets = @q.result.page(params[:page]).per(10).order('created_at DESC')
+
+    # オリジナルのTweetだけでなく､返信もあわせて表示･検索対象にする
+
   end
 end

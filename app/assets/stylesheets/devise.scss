@@ -37,23 +37,37 @@
         background: linear-gradient(#689a72 0%,#406f40 100%);
     }
     
-
-    .prof-image-box {
-        margin: 10px 0;
-        position: relative;
-        left: 0;
-        width: 50px;
-        height: 50px;
-        overflow: hidden;
-        border-radius: 8px;
-
-        .prof-image {
-            position: absolute;
-            top: 0;
+    .image-file-area {
+        margin-bottom: 10px;
+    }
+    .prof-image-area {
+        .prof-image-box {
+            float: left;
+            margin: 10px 10px;
+            position: relative;
             left: 0;
-            height: 100%;
-            width: 100%;
-            margin: 0 auto;
+            width: 50px;
+            height: 50px;
+            overflow: hidden;
+            border-radius: 8px;
+    
+            .prof-image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                margin: 0 auto;
+            }
+        }
+        .prof-image-remove-option {
+            float: left;
+            margin: 22px 0px 0 10px;
+            label {
+                margin-left: 4px;
+                font-size: 80%;
+                font-weight: normal;
+            }
         }
     }
     .user-unregister {

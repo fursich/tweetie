@@ -36,7 +36,8 @@ class UserImageUploader < CarrierWave::Uploader::Base
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  def extension_whitelist
+
+  def extension_whitelist   # アップロード可能なファイルを限定(exifではなく拡張子で判断していることに注意)
     %w(jpg jpeg gif png)
   end
   

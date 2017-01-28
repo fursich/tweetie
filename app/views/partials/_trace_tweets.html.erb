@@ -1,0 +1,22 @@
+
+<!--ツイート描画 (対象ツイートから派生する返信を全て描画)-->
+
+<!--パーシャル変数:-->
+<!-- t･･描画したいデータが入った･Tweetインスタンス-->
+
+<!-- tを親とする返信がぶら下がっている場合､再帰的に呼び出し描画する-->
+<!-- ※ 現状は､古いもの順(idが小さいもの順)に表示されるが､変更する場合はeachの順序を変える-->
+
+
+<%= render 'partials/render_one_tweet', t: t %>
+
+<% t.retweets.each do |retweet| %>
+  <div class='row'>
+    <div class='col-xs-1'></div>
+    <div class='col-xs-11'>
+      <%= render 'partials/trace_tweets', t: retweet %>
+    </div>
+  </div>
+<% end %>
+
+  

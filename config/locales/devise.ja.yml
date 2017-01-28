@@ -14,6 +14,7 @@ ja:
         remember_me: "ログイン情報を記憶する"
         profile: "プロフィール"
         image: "プロフィール画像"
+        remove_image: "デフォルト画像に戻す"
 
   devise:
     sessions:

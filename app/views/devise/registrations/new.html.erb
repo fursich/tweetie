@@ -62,12 +62,23 @@
             <%= f.label :image %>
           </div>
           <div class='col-md-8'>
-            <div class='prof-image-box'>
-              <%= image_tag f.object.image_url, class: 'prof-image' %>
+
+            <div class='image-file-area'>
+              <%= f.file_field :image, class: 'image-file-button' %>
+              <%= f.hidden_field :image_cache %>
             </div>
-            <%= f.file_field :image %>
-            <%= f.hidden_field :image_cache %>
+
+            <div class='prof-image-area clearfix'>
+              <div class='prof-image-box'>
+                <%= image_tag f.object.image_url, class: 'prof-image' %>
+              </div>
+              <div class='prof-image-remove-option'>
+                <%= f.check_box :remove_image %>
+                <%= f.label :remove_image %>
+              </div>
+            </div>
           </div>
+
         </div>
     
         <div class="form-group row">

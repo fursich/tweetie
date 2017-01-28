@@ -40,7 +40,7 @@
       
         <div class="form-group row">
           <div class='col-md-4 user-form-label'>
-            <%= f.label :password %><br /> <i>(変更する場合)</i>
+            <%= f.label :password %><strong>(変更する場合)</strong>
           </div>
           <div class='col-md-8'>
             <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
@@ -72,11 +72,20 @@
           </div>
           <div class='col-md-8'>
     
-            <div class='prof-image-box'>
-              <%= image_tag f.object.image_url, class: 'prof-image' %>
+            <div class='image-file-area'>
+              <%= f.file_field :image, class: 'image-file-button' %>
+              <%= f.hidden_field :image_cache %>
             </div>
-            <%= f.file_field :image, class: 'image-file-button' %>
-            <%= f.hidden_field :image_cache %>
+
+            <div class='prof-image-area clearfix'>
+              <div class='prof-image-box'>
+                <%= image_tag f.object.image_url, class: 'prof-image' %>
+              </div>
+              <div class='prof-image-remove-option'>
+                <%= f.check_box :remove_image %>
+                <%= f.label :remove_image %>
+              </div>
+            </div>
           </div>
             
         </div>

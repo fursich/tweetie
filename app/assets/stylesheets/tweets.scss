@@ -88,6 +88,8 @@
                 }
 
                 .tweet-header {
+                    margin: 0;
+                    padding: 0;
                     .user-name {
                         font-size: 90%;
                         font-weight: bold;
@@ -95,12 +97,28 @@
                     .tweeted-datetime {
                         font-size: 80%;
                     }
+                    .retweeted_from {
+                        margin-left: 5px;
+                        font-size: 80%;
+                        color: #ddd;
+                        a:link {
+                            color: #c0c5c0;
+                        }
+                        a:visited {
+                            color: #c0c5c0;
+                        }
+                        a:hover {
+                            color: #a0a5a0;
+                            font-weight: normal;
+                        }
+                    }
                 }
                 .tweet-content {
-                    margin-top: 4px;
+                    margin: 4px 0 0 0;
                 }
             }
         }
+
     }
     .tweet-del-btn {
         text-align: right;

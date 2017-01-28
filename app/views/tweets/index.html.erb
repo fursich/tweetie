@@ -1,5 +1,5 @@
 
-<%= render 'partials/header', srchpath: tweets_path %>
+<%= render 'partials/header', srchpath: search_tweets_path %>
 
 <div class='container-fluid'>
 
@@ -15,7 +15,7 @@
       
         <div class='tweet-container'>
           <% @tweets.each do |tweet| %>
-            <%= render 'partials/per_tweet', t: tweet %>
+            <%= render 'partials/trace_tweets', t: tweet %>
           <% end %>
         </div>
         
