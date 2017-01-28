@@ -1,5 +1,5 @@
 
-## Twitterライクアプリケーション"tweetie" ##
+Twitterライクアプリケーション"tweetie"
 
 ○ 環境
 
