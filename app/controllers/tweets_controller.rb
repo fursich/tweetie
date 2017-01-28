@@ -1,12 +1,13 @@
 class TweetsController < ApplicationController
 
-  before_action :authenticate_user!
-  before_action :find_tweet, only: [:show, :edit, :update, :destroy]
-  before_action :init_srch_query, only: [:index, :show, :edit]
+  before_action :authenticate_user!  #ログインしていない場合はログイン画面に飛ばす
+  before_action :find_tweet, only: [:show, :edit, :update, :destroy]  #params[:id]で指定されたTweetインスタンスをセットする
+  before_action :init_srch_query, only: [:index, :show, :edit]  #検索窓用のサーチクエリをセットする
   
   def index
     @tweet = Tweet.new
     @tweets = @q.result.first_tweets.page(params[:page]).per(10).order('created_at DESC')
+    # first_tweetsは､オリジナルのTweet(返信ではないもの)だけを返すTweetモデルのscope
   end
   
   def edit

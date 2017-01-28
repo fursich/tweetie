@@ -1,5 +1,9 @@
 
+<!--メッセージ･アラート機能-->
+
 <p class='notice'><%= notice if flash[:notice].present? %></p>
+
+<!--flash[:alert]は､ハッシュだけでなくdeviseから文字列でも渡されることもあるので､処理を分ける-->
 
 <% if flash[:alert].present? %>
   <% if flash[:alert].is_a?(String) %>

@@ -1,16 +1,24 @@
 
-<% if t.present? %>
+<!--ツイート入力画面を描画する-->
 
-  <div class='new-tweet-container'>
-    <%= form_for t do |f| %>
-      <div class='form-group new-tweet-box'>
-        <%= f.text_area :content, rows: '4', placeholder: '（140文字以内で投稿）', class: 'form-control' %>
-        <% if reply_to %>
-          <%= f.hidden_field :retweet_id, value: reply_to %>
-        <% end %>
-      </div>
-      <%= f.submit '投稿', class: 'btn submit-btn' %>
-    <% end %>
-  </div>
+<!--パーシャル変数:-->
 
-<% end %>
+<!-- t･･･フォーム生成のためのベースとなるTweetインスタンス-->
+<!--    (newならば新規インスタンス､editなら既存インスタンス)-->
+
+<!-- reply_to･･･返信の場合､返信元のidが入る｡falseの場合は新規ツイート(retweet_idなし)-->
+
+
+<div class='new-tweet-container'>
+  <%= form_for t do |f| %>
+    <div class='form-group new-tweet-box'>
+      <%= f.text_area :content, rows: '4', placeholder: '（140文字以内で投稿）', class: 'form-control' %>
+
+      <% if reply_to %>
+        <%= f.hidden_field :retweet_id, value: reply_to %>
+      <% end %>
+
+    </div>
+    <%= f.submit '投稿', class: 'btn submit-btn' %>
+  <% end %>
+</div>
