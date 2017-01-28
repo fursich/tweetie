@@ -1,4 +1,6 @@
 
+Twitterライクアプリケーション"tweetie"
+
 ○ 環境
 
 ruby 2.4.0p0
@@ -56,14 +58,19 @@ user.rb - ユーザー情報
 <CSS>
 
 common - 主に全体に関わるレイアウト(警告表示など)
+
 devise - ログイン関係の画面レイアウト
+
 tweets - Tweetに関わる画面レイアウト｡このアプリのメインとなるCI
+
 users - Userプロフィール表示レイアウト
 
 <locale>
 
 devise.ja.yml - 今回､特定の表示をさせるために細かくカスタマイズ(特にUserに含まれる画像に関するメッセージなど)
+
 ja.yml - I18nデフォルト
+
 tweet.je.yml - 使われていない
 
 <Gem>
