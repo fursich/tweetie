@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :image, file_size: { maximum: 500.kilobytes.to_i }  #画像に500kb制限をかける(ただしアップロード後にはじく仕様) https://gist.github.com/chrisbloom7/1009861
+  validates :image, file_size: { maximum: 500.kilobytes.to_i }  #画像に500kb制限をかける(ただしアップロード後にはじく仕様) 
   validates :profile, presence: true, length: {maximum: 200}    #プロフィールは200文字まで
          
   mount_uploader :image, UserImageUploader

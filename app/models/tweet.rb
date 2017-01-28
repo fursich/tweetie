@@ -12,7 +12,7 @@ class Tweet < ActiveRecord::Base
     def has_parent?  #見通しを良くするためメソッド化(リツイートかどうかを返す)
         !self.retweet_id.nil?
     end
-    def first_parent    #返信元をたどっていき､最初のツイートを返す
+    def first_parent    #返信元をたどっていき､最初のツイートを返す(今回未使用)
         ch = self
         while ch.retweet_id.present?
             ch=Tweet.find(ch.retweet_id)
