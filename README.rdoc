@@ -12,12 +12,12 @@ MacOS + Chrome / iOS (iPhone 6s) + safariで動作確認
 
 <Controller>
 
-tweets_controller - アプリケーションのメインCRUD機能｡検索結果表示用にget/searchを追加｡
-users_controller - ユーザー表示画面用､ここから検索かけた場合のみ､ユーザー縛りで検索がかかる(結果は同じ画面で表示)
+# tweets_controller - アプリケーションのメインCRUD機能｡検索結果表示用にget/searchを追加｡
+# users_controller - ユーザー表示画面用､ここから検索かけた場合のみ､ユーザー縛りで検索がかかる(結果は同じ画面で表示)
 
 <View>
 
-users - ユーザー表示画面用(show.html.erb)
+# users - ユーザー表示画面用(show.html.erb)
 devise/kaminari - デフォルトビューを一部カスタマイズ
 layouts - viewportを設定するなど｡ほぼデフォルトのまま
 tweets/ - 標準的なビューを格納｡searchは検索結果表示画面(indexと表示ロジックが違うため分けた)
