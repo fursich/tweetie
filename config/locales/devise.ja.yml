@@ -33,6 +33,7 @@ ja:
     failure:
       already_authenticated: '既にログインしています。'
       user:
+        invalid: 'メールアドレスかパスワードが違います。'
         unauthenticated: 'ログインしてください。'
         not_found_in_database: 'メールアドレスもしくはパスワードが違います。'
 
