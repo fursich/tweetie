@@ -19,8 +19,8 @@ Heroku + fog+ AWS S3
 
 https://tweetie-app.herokuapp.com/
 
-ユーザー名: guest@guest.net
-パスワード: guest1
++ ユーザー名: guest@guest.net
++ パスワード: guest1
 
 これでログイン可能｡
 ※右上の｢新規登録｣ボタンからユーザー登録もできます｡
