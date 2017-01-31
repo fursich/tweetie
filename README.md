@@ -1,5 +1,5 @@
 
-# *tweetie*
+# tweetie
 
 Twitterライクアプリケーションです｡
 bootstrap3によるレスポンシブ対応｡
