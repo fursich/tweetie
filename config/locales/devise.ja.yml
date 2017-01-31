@@ -37,6 +37,8 @@ ja:
         invalid: 'メールアドレスかパスワードが違います。'
         unauthenticated: 'ログインしてください。'
         not_found_in_database: 'メールアドレスもしくはパスワードが違います。'
+        locked: 'あなたのアカウントは凍結されています。'
+
 
   confirmations:
     confirmed: 'アカウントを登録しました。'
