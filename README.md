@@ -1,5 +1,5 @@
 
-# "tweetie"
+# *tweetie*
 
 Twitterライクアプリケーションです｡
 bootstrap3によるレスポンシブ対応｡
@@ -25,7 +25,7 @@ https://tweetie-app.herokuapp.com/
 これでログイン可能｡
 ※右上の｢新規登録｣ボタンからユーザー登録もできます｡
 
-### 画面
+### ○ 画面
 
 下記の画面があり､ツイート上や､navbar上のリンク､ロゴをクリックすることで遷移します｡
 デザイン要素はミニマムにし､ユーザーがなるべく考えることなく直感的に操作できるよう工夫しました｡
@@ -40,40 +40,42 @@ https://tweetie-app.herokuapp.com/
 
 ### ○ プログラム説明
 
-__<Controller>__
+**Controller**
 
-tweets_controller - アプリケーションのメインCRUD機能｡検索結果表示用にget/searchを追加｡
++ tweets_controller - アプリケーションのメインCRUD機能｡検索結果表示用にget/searchを追加｡
 
-users_controller - ユーザー表示画面用､ここから検索かけた場合のみ､ユーザー縛りで検索がかかる(結果は同じ画面で表示)
++ users_controller - ユーザー表示画面用､ここから検索かけた場合のみ､ユーザー縛りで検索がかかる(結果は同じ画面で表示)
 
-__<View>__
+**View**
 
-users - ユーザー表示画面用(show.html.erb)
++ users - ユーザー表示画面用(show.html.erb)
 
-devise/kaminari - デフォルトビューを一部カスタマイズ
++ /devise - デフォルトビューを一部カスタマイズ
 
-layouts - viewportを設定するなど｡ほぼデフォルトのまま
++ /kaminari - デフォルトビューを一部カスタマイズ
 
-tweets/ - 標準的なビューを格納｡searchは検索結果表示画面(indexと表示ロジックが違うため分けた)
++ /layouts/ - viewportを設定するなどした以外は､ほぼデフォルト
 
-partials - テンプレートを保存
++ /tweets/ - 標準的なビューを格納｡searchは検索結果表示画面(indexと表示ロジックが違うため分けた)
 
-    * _header.html.erb              ヘッダー部分(navbar) ロゴやリンクなど､オプションsrchpathを指定すると検索窓を表示(出さない場合はfalseにする)
-    * _alert.html.erb               警告表示用､noticeは1行表示､alertは1行､複数行のどちらにも対応
-    * _new_tweet.html.erb           新規ツイート投稿用のフォームを表示する(既存ツイートを編集する際にも使用できる)
-    * _render_one_tweet.html.erb    ツイートを一つ表示する
-    * _trace_tweets.html.erb        ツイートを連続的に表示する｡表示対象から､再帰的に返信先をたどることで表示｡
-    * _user_profile.html.erb        ユーザープロフィール表示画面をつくる
++ /partials/ - パーシャルを格納
+
+  * _header.html.erb              ヘッダー部分(navbar) ロゴやリンクなど､オプションsrchpathを指定すると検索窓を表示(出さない場合はfalseにする)
+  * _alert.html.erb               警告表示用､noticeは1行表示､alertは1行､複数行のどちらにも対応
+  * _new_tweet.html.erb           新規ツイート投稿用のフォームを表示する(既存ツイートを編集する際にも使用できる)
+  * _render_one_tweet.html.erb    ツイートを一つ表示する
+  * _trace_tweets.html.erb        ツイートを連続的に表示する｡表示対象から､再帰的に返信先をたどることで表示｡
+  * _user_profile.html.erb        ユーザープロフィール表示画面をつくる
 
 
-__<Model>__
+**Model**
 
-tweet.rb - ツイート内容を格納
++ tweet.rb - ツイート内容を格納
 
    * parent_tweet: 返信元の親ツイート､retweet: 返信された子ツイート
    * validation､メソッドなどの詳細はtweet.rbに記載
 
-user.rb - ユーザー情報
++ user.rb - ユーザー情報
 
     * ユーザー名(アカウント名)であるnameは､使える文字に制限をかけている上に､unique設定とした
     * 画像に関しては､ファイル名(拡張子)と､サイズでのバリデーションがかかっている
@@ -83,31 +85,31 @@ user.rb - ユーザー情報
       登録に進めなくなることを防ぐために､画像を消去するオプションを追加
     * 上と関連して､画像をもし登録できなくても､デフォルト画像を表示する仕様に変更した
     
-__<CSS>__
+**CSS**
 
-common - 主に全体に関わるレイアウト(警告表示など)
++ common - 主に全体に関わるレイアウト(警告表示など)
 
-devise - ログイン関係の画面レイアウト
++ devise - ログイン関係の画面レイアウト
 
-tweets - Tweetに関わる画面レイアウト｡このアプリのメインとなるCI
++ tweets - Tweetに関わる画面レイアウト｡このアプリのメインとなるCI
 
-users - Userプロフィール表示レイアウト
++ users - Userプロフィール表示レイアウト
 
-__<locale>__
+**locale**
 
-devise.ja.yml - 今回､特定の表示をさせるために細かくカスタマイズ(特にUserに含まれる画像に関するメッセージなど)
++ devise.ja.yml - 今回､特定の表示をさせるために細かくカスタマイズ(特にUserに含まれる画像に関するメッセージなど)
 
-ja.yml - I18nデフォルト
++ ja.yml - I18nデフォルト
 
-tweet.je.yml - 使われていない
++ tweet.je.yml - 使われていない
 
-__<Gem>__
+**Gem**
 
 以下のgemを使用(説明は省略)
 
-devise
-carrierwave
-ransack
-bootstrap-sass
-kaminari/kaminari-bootstrap
-fog
++ devise
++ carrierwave
++ ransack
++ kaminari/kaminari-bootstrap
++ fog
++ bootstrap-sass
