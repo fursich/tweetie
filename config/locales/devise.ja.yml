@@ -29,6 +29,7 @@ ja:
     password:
       updated: 'パスワードを変更しました。'
       updated_not_active: 'パスワードが正しく変更されました。'
+      send_instructions: 'パスワードのリセット方法を数分以内にメールでご連絡します。'
 
     failure:
       already_authenticated: '既にログインしています。'
