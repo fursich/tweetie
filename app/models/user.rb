@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_many :tweets, dependent: :destroy
 
   VALID_NAME =  /\A[a-zA-Z0-9_]+\z/  #アカウント名はアルファベット/数字/アンダースコアのみとする｡冒頭がアンダースコア､アンダースコア複数連結などは許可
-  validates :name, presence: true, uniqueness: true, length: {minimum: 8, maximum: 20}, format: { with: VALID_NAME }
+  validates :name, presence: true, uniqueness: true, length: {minimum: 4, maximum: 20}, format: { with: VALID_NAME }
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
