@@ -39,7 +39,7 @@
     </div>
   
     <div class='tweet-content'>
-      <% if t.user_id == current_user.id %>
+      <% if t.user_id == current_user.id || true %>
         <%= link_to edit_tweet_path(id: t.id) do %>
           <%= t.content %>
         <% end %>
