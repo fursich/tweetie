@@ -47,6 +47,12 @@
                 color: #444;
                 font-size: 105%;
                 font-weight: bold;
+                .mark-admin{
+                    margin-left: 5px;
+                    margin-right: 5px;
+                    color: red;
+                    font-wight: bold;
+                }
             }
             .user-login-datetime {
                 color: #933;
@@ -67,6 +73,11 @@
                 color: #454;
                 font-size: 95%;
             }
+        }
+        .user-lock-btn {
+            text-align: right;
+            margin-top: -20px;
+            margin-bottom: 10px;
         }
     }
 

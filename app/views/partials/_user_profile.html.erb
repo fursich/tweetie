@@ -18,25 +18,36 @@
 
       <span class='user-name'>
         <%= link_to user_path(u.id) do %>
-          @<%= u.name %><br class='visible-xs-inline'>
+          @<%= u.name %>
         <% end %>
+        <% if u.admin? %>
+          <span class='mark-admin'>ADMIN</span> 
+        <% end %>
+        <br class='visible-xs-inline'>
       </span>
 
-      <span class='user-login-datetime'>
-          最終ログイン日：<br class='visible-xs-inline'>
-          <%= u.last_sign_in_at.strftime("%Y-%m-%d %H:%M:%S") %>
-      </span>
+      <%= render 'partials/user_account_info', u: u %>
 
-      </div>
-
-    <div class='user-prof-text'>
-      <div class='prof-title'>
-        プロフィール
-      </div>
-      <div class='prof-body'>
-        <%= u.profile %>
-      </div>
     </div>
+
+    <% if !current_user.admin? %>
+      <div class='user-prof-text'>
+        <div class='prof-title'>
+          プロフィール
+        </div>
+        <div class='prof-body'>
+          <%= u.profile %>
+        </div>
+      </div>
+    <% elsif !u.admin? %>
+      <div class='user-lock-btn'>
+        <% if u.access_locked? %>
+          <%= button_to "ロック中", user_path(id: u.id), method: :patch, class: "btn btn-danger" %>
+        <% else %>
+          <%= button_to "ロックする", user_path(id: u.id), method: :patch, class: "btn btn-success" %>
+        <% end %>
+      </div>
+    <% end %>
 
   </div>
 </div>

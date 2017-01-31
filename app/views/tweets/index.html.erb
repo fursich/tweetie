@@ -9,7 +9,9 @@
 
       <%= render 'partials/alert' %>
 
-      <%= render 'partials/new_tweet', t: @tweet, reply_to: false %>
+      <div class='index-new-tweet'>
+        <%= render 'partials/new_tweet', t: @tweet, reply_to: false %>
+      </div>
 
       <div class="timeline">
       

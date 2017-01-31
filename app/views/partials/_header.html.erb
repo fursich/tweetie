@@ -26,7 +26,11 @@
             <% if user_signed_in? %>
   
               <li><%= link_to "@#{current_user.name}", user_path(current_user.id), class: 'account-name' %></li>
-              <li><%= link_to '設定変更', edit_user_registration_path, class: 'link link-1' %></li>
+              <% if current_user.admin? %>
+                <li><%= link_to 'ユーザー管理', users_path, class: 'link link-1' %></li>
+              <% else %>
+                <li><%= link_to '設定変更', edit_user_registration_path, class: 'link link-1' %></li>
+              <% end %>
               <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'link link-2' %></li>
             <% else %>
               <li><%= link_to 'ログイン', new_user_session_path, class: 'link link-1' %></li>

@@ -1,5 +1,7 @@
 class Tweet < ActiveRecord::Base
     belongs_to :user
+    has_many :emotions
+    
     has_many :retweets, class_name: :Tweet, foreign_key: :retweet_id, dependent: :destroy #返信をretweetsで参照
     belongs_to :parent_tweet, class_name: Tweet, foreign_key: :retweet_id #返信元をparent_tweetで参照
 

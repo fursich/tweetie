@@ -1,0 +1,27 @@
+
+<!--ユーザープロファイル管理情報の表示(admin用)-->
+
+<!--パーシャル変数:-->
+<!-- u:描画するユーザーデータを保持したUserインスタンス-->
+
+
+<span class='user-login-datetime'>
+    最終ログイン日時：<br class='visible-xs-inline'>
+    <%= u.current_sign_in_at.strftime("%Y-%m-%d %H:%M:%S") %><br />
+</span>
+
+<% if current_user.admin? %>
+  <br />
+  <span class='user-login-datetime'>
+      最終ログインIP：<br class='visible-xs-inline'>
+      <%= u.last_sign_in_ip %><br />
+  </span>
+  <span class='user-login-datetime'>
+      ログイン回数：<br class='visible-xs-inline'>
+      <%= u.sign_in_count %><br />
+  </span>
+  <span class='user-login-datetime'>
+      ロック状態：<br class='visible-xs-inline'>
+      <%= u.access_locked? ? 'locked' : '-' %><br />
+  </span>
+<% end %>

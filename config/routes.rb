@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/show'
+  get 'reaction/create'
 
   root to: 'tweets#index'
 
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :users, only: :show
+  resources :users, only: [:index, :show, :update]
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
