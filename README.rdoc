@@ -1,7 +1,7 @@
 
-Twitterライクアプリケーション"tweetie"
+# Twitterライクアプリケーション"tweetie"
 
-○ 環境
+## ○ 環境
 
 ruby 2.4.0p0
 Rails 4.2.7.1
@@ -10,15 +10,15 @@ Cloud 9
 MacOS + Chrome / iOS (iPhone 6s) + safariで動作確認
 
 
-○ プログラム説明
+## ○ プログラム説明
 
-<Controller>
+### <Controller>
 
 tweets_controller - アプリケーションのメインCRUD機能｡検索結果表示用にget/searchを追加｡
 
 users_controller - ユーザー表示画面用､ここから検索かけた場合のみ､ユーザー縛りで検索がかかる(結果は同じ画面で表示)
 
-<View>
+### <View>
 
 users - ユーザー表示画面用(show.html.erb)
 
@@ -38,7 +38,7 @@ partials - テンプレートを保存
     * _user_profile.html.erb        ユーザープロフィール表示画面をつくる
 
 
-<Model>
+### <Model>
 
 tweet.rb - ツイート内容を格納
 
@@ -55,7 +55,7 @@ user.rb - ユーザー情報
       登録に進めなくなることを防ぐために､画像を消去するオプションを追加
     * 上と関連して､画像をもし登録できなくても､デフォルト画像を表示する仕様に変更した
     
-<CSS>
+__<CSS>__
 
 common - 主に全体に関わるレイアウト(警告表示など)
 
@@ -82,3 +82,4 @@ carrierwave
 ransack
 bootstrap-sass
 kaminari/kaminari-bootstrap
+
