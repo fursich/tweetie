@@ -12,8 +12,8 @@
 
       <div class="timeline">
 
-        <% if @tweet.user.id == current_user %>
-          <%= render 'partials/new_tweet', t: @tweet, reply_to: false %>
+        <% if @tweet.user.id == current_user.id %>
+          <%= render 'partials/new_tweet', t: @tweet, reply_to: false, ajax_post: false %>
         <% elsif current_user.admin? %>
           <div class='tweet-container'>
             <%= render 'partials/render_one_tweet', t: @tweet %>

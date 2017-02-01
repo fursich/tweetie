@@ -6,19 +6,38 @@
 <!-- t･･･フォーム生成のためのベースとなるTweetインスタンス-->
 <!--    (newならば新規インスタンス､editなら既存インスタンス)-->
 
-<!-- reply_to･･･返信の場合､返信元のidが入る｡falseの場合は新規ツイート(retweet_idなし)-->
-
+<!-- reply_to･･･返信の場合､返信元のidが入る｡falseの場合は新規･既存ツイート(retweet_i上書きせず)-->
+<!--ajax_post･･･trueの場合､ajax更新-->
 
 <div class='new-tweet-container'>
-  <%= form_for t do |f| %>
-    <div class='form-group new-tweet-box'>
-      <%= f.text_area :content, rows: '4', placeholder: '（140文字以内で投稿）', class: 'form-control' %>
 
-      <% if reply_to %>
-        <%= f.hidden_field :retweet_id, value: reply_to %>
-      <% end %>
 
-    </div>
-    <%= f.submit '投稿', class: 'btn submit-btn' %>
+  <% if ajax_post %>
+    <%= form_for t, remote: true, format: :json, authenticity_token: true, html: {id: 'new-tweet-form'} do |f| %>
+      <div class='form-group new-tweet-box'>
+        <%= f.text_area :content, rows: '5', placeholder: '（140文字以内で投稿）', class: 'form-control new-tweet' %>
+  
+        <% if reply_to %>
+          <%= f.hidden_field :retweet_id, value: reply_to %>
+        <% end %>
+  
+      </div>
+      <%= f.submit '投稿', class: 'btn submit-btn' %>
+    <% end %>
+
+  <% else %>
+
+    <%= form_for t, html: {id: 'new-tweet-form'} do |f| %>
+      <div class='form-group new-tweet-box'>
+        <%= f.text_area :content, rows: '5', placeholder: '（140文字以内で投稿）', class: 'form-control new-tweet' %>
+  
+        <% if reply_to %>
+          <%= f.hidden_field :retweet_id, value: reply_to %>
+        <% end %>
+  
+      </div>
+      <%= f.submit '投稿', class: 'btn submit-btn' %>
+    <% end %>
   <% end %>
+  
 </div>

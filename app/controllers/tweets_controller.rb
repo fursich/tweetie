@@ -42,7 +42,13 @@ class TweetsController < ApplicationController
     @tweet.user_id = current_user.id
     @tweet.attributes = tweet_params
     if @tweet.save
-      redirect_to action: :index
+      respond_to do |format|
+        format.html {redirect_to action: :index}
+        format.json {
+          new_html = render_to_string partial: 'partials/render_one_tweet', formats: :html, locals: {t: @tweet}
+          render json: {status: 'success', html: new_html}
+          }
+      end
     else
       flash.now[:alert] = @tweet.errors.full_messages
       @q = Tweet.search(params[:q])

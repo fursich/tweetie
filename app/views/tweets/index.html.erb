@@ -10,7 +10,7 @@
       <%= render 'partials/alert' %>
 
       <div class='index-new-tweet'>
-        <%= render 'partials/new_tweet', t: @tweet, reply_to: false %>
+        <%= render 'partials/new_tweet', t: @tweet, reply_to: false, ajax_post: true %>
       </div>
 
       <div class="timeline">

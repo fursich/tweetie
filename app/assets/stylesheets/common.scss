@@ -1,12 +1,23 @@
 body {
-    background-color: #d4f2c9;
+    background-color: #C9F582;
+    .container-fluid {
+        margin: 0 auto;
+        .main-row {
+            margin: 0 auto;
+            margin-bottom: 100px;
+            .main-container {
+                margin: 0 5px 0 5px;
+            }
+        }
+    }
 }
 
+   
 
 #header {
     width: 100%;
     .navbar{
-        background-color: #588A62;
+        background: linear-gradient(#3E6345 0%,#417341 100%);
         .header-logo-box {
             margin: 0;
             padding: 0;
