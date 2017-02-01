@@ -5,7 +5,7 @@ Twitterをイメージした会話用アプリケーションです｡
 bootstrap3によるレスポンシブ対応｡
 ログイン機能､画像アップロード､プロフィール編集､検索､ページネーション機能など基本的な機能を備えたcrudアプリケーションです｡
 
-(last update: 2017/1/31 管理者機能を追加)
+(2017/2/1 ajaxによる投稿機能､jQueryによる返信画面の畳み込み機能を追加)
 
 ### ○ 環境
 
@@ -129,7 +129,7 @@ https://tweetie-app.herokuapp.com/
 
 + tweet.je.yml - 使われていない
 
-**Gem**
+### ○ Gem
 
 以下のgemを使用(説明は省略)
 
@@ -139,3 +139,12 @@ https://tweetie-app.herokuapp.com/
 + kaminari/kaminari-bootstrap
 + fog
 + bootstrap-sass
+
+### 更新履歴
+
+
+2017/1/25 仕様確認･開発開始
+2017/1/28 α版デプロイ
+2017/1/31 管理者機能を追加
+2017/2/1  ajax投稿･返信機能を追加
+
