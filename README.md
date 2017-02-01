@@ -5,7 +5,7 @@ Twitterをイメージした会話用アプリケーションです｡
 bootstrap3によるレスポンシブ対応｡
 ログイン機能､画像アップロード､プロフィール編集､検索､ページネーション機能など基本的な機能を備えたcrudアプリケーションです｡
 
-(2017/2/1 ajaxによる投稿機能､jQueryによる返信画面の畳み込み機能を追加)
+(last update: 2017/2/1 ajaxによる投稿機能､jQueryによる返信画面の畳み込み機能を追加)
 
 ### ○ 環境
 
@@ -14,8 +14,8 @@ Rails 4.2.7.1
 Cloud 9
 MacOS + Chrome, iOS (iPhone 6s) + safariで動作確認
 
-(デプロイ環境)
-Heroku + fog+ AWS S3
+(デプロイ環境)  
+Heroku + fog + AWS S3
 
 ### ○ 使い方
 
