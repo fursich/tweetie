@@ -1,0 +1,13 @@
+
+<!--ツイートごとのリアクションボタンを表示-->
+<!--t: 対象となるTweetオブジェクト-->
+
+<% Reaction.emotions.each do |emotion, emotion_id| %>
+  <% next if emotion == :na %>
+  <% if t.has_emotion_by_user?(emotion, current_user.id) %>
+      <% cls = class_by_emotion(emotion) + " emotion-icon selected" %>
+  <% else %>
+      <% cls = class_by_emotion(emotion) + " emotion-icon not-selected" %>
+  <% end %>
+  <%= link_to '', reactions_path(emotion: emotion, tweet_id: t.id, format: :json), remote: true, method: :post, class: cls %>
+<% end %>

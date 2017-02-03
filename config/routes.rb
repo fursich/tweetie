@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'reactions/create'
 
   root to: 'tweets#index'
 
@@ -13,6 +12,7 @@ Rails.application.routes.draw do
   
   resources :users, only: [:index, :show, :update]
   resources :user_configs, only: [:create]
+  resources :reactions, only: [:create]
   
   
   # The priority is based upon order of creation: first created -> highest priority.

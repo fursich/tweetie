@@ -132,6 +132,21 @@
                 }
                 .tweet-content {
                     margin: 4px 0 0 0;
+                    height: auto;
+                }
+                .reaction-buttons-container {
+                    width: 120px;
+                    margin-top: 2px;
+                    text-align: center;
+
+                    .emotion-icon.selected {
+                        opacity: 0.9;
+                        font-size: 60%;
+                    }
+                    .emotion-icon.not-selected {
+                        font-size: 50%;
+                        opacity: 0.4;
+                    }
                 }
             }
         }

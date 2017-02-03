@@ -6,11 +6,11 @@ class TweetsController < ApplicationController
   
   def index
     @tweet = Tweet.new
-    @user_config = UserConfig.find_or_initialize_by(user_id: current_user.id)
     @tweets = Tweet.all.includes(:retweets, :user).first_tweets.page(params[:page]).per(10).order('created_at DESC')
-
     # first_tweetsは､オリジナルのTweet(返信ではないもの)だけを返すTweetモデルのscope
     # 検索結果はsearchコントローラーで別に処理｡(返信も検索対象に含めて表示させたいので､処理を分けている)
+
+    @user_config = UserConfig.find_or_initialize_by(user_id: current_user.id)
   end
   
   def search

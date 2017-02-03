@@ -7,10 +7,10 @@ class Reaction < ActiveRecord::Base
     validates :user_id, presence: true
     validates :tweet_id, presence: true
     
-    def has_emotion?
-        !self.emotion.na?
+    def has_emotion?(emotion)
+        !! (self.emotion == emotion)
     end
-    def reset_emotion
+    def reset_emotion!
         self.emotion.na!
     end
 end
