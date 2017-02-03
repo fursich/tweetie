@@ -6,6 +6,7 @@ class TweetsController < ApplicationController
   
   def index
     @tweet = Tweet.new
+    @user_config = UserConfig.find_or_initialize_by(user_id: current_user.id)
     @tweets = Tweet.all.includes(:retweets, :user).first_tweets.page(params[:page]).per(10).order('created_at DESC')
 
     # first_tweetsは､オリジナルのTweet(返信ではないもの)だけを返すTweetモデルのscope
@@ -25,7 +26,7 @@ class TweetsController < ApplicationController
     @new_retweet=Tweet.new
   end
 
-  def update
+  def update      #updateに関してはindex画面へ戻るため､ajaxなしとする
     @tweet.user_id = current_user.id
     @tweet.attributes = tweet_params
     if @tweet.save
@@ -33,6 +34,7 @@ class TweetsController < ApplicationController
       redirect_to action: :index
     else
       flash.now[:alert] = @tweet.errors.full_messages
+      init_srch_query
       render :edit
     end
   end
@@ -43,17 +45,26 @@ class TweetsController < ApplicationController
     @tweet.attributes = tweet_params
     if @tweet.save
       respond_to do |format|
-        format.html {redirect_to action: :index}
-        format.json {
+        format.html do
+          redirect_to action: :index
+        end
+        format.json do
           new_html = render_to_string partial: 'partials/render_one_tweet', formats: :html, locals: {t: @tweet}
-          render json: {status: 'success', html: new_html}
-          }
+          render json: {result: 'success', html: new_html}
+        end
       end
     else
-      flash.now[:alert] = @tweet.errors.full_messages
-      @q = Tweet.search(params[:q])
-      @tweets = @q.result.page(params[:page]).per(10).order('created_at DESC')
-      render :index
+      respond_to do |format|
+        format.html do
+          flash[:alert] = @tweet.errors.full_messages
+          init_srch_query
+          @tweets = @q.result.page(params[:page]).per(10).order('created_at DESC')
+          redirect_to :back
+        end
+        format.json do
+          render json: {result: 'failure', error_message: @tweet.errors.full_messages}
+        end
+      end
     end
   end
 

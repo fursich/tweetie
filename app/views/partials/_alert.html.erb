@@ -5,12 +5,16 @@
 
 <!--flash[:alert]は､ハッシュだけでなくdeviseから文字列でも渡されることもあるので､処理を分ける-->
 
+<p class='alert'>
+
 <% if flash[:alert].present? %>
   <% if flash[:alert].is_a?(String) %>
-    <p class='alert'><%= alert %></p>
+    <%= alert %>
   <% elsif flash[:alert].is_a?(Array) %>
     <% flash[:alert].each do |message| %>
-      <p class='alert'><%= message %></p>
+      <%= message %>
     <% end %>
   <% end %>
 <% end %>
+
+</p>

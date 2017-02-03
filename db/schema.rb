@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170131125815) do
+ActiveRecord::Schema.define(version: 20170202125913) do
 
   create_table "reactions", force: :cascade do |t|
     t.integer  "emotion",    limit: 1, default: 0, null: false
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 20170131125815) do
     t.string   "content",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "user_configs", force: :cascade do |t|
+    t.integer  "user_id",                            null: false
+    t.boolean  "show_reply",          default: true, null: false
+    t.boolean  "restrict_unfollowed", default: true, null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   create_table "users", force: :cascade do |t|

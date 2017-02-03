@@ -1,0 +1,10 @@
+
+<!--indexのタイムライン表示オプションを切り替えるためのボタン等-->
+
+
+<div class='option-wrapper'>
+  <div class='option-show-reply'>
+    <%= label_tag 'show-reply-checkbox', '返信を全て表示' %>
+    <%= check_box_tag 'show-reply-checkbox', true, @user_config.show_reply %>
+  </div>
+</div>
