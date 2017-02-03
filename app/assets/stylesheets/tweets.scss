@@ -38,6 +38,9 @@
         .retweet-header {
             float: right;
             height: 10px;
+            @media (max-width: 768px) {
+                height: 12px;
+            }
             width: 99%;
             background-color: #85BF63;
             border-left: 1px solid #A1B099;

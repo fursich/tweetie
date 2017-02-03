@@ -31,6 +31,24 @@ $(function(){
             });
         }
     });
+    
+    var ua = navigator.userAgent;
+    $('.retweet-header').on('mouseover',function() {
+        if (ua.indexOf('iPhone') <= 0 && ua.indexOf('Mobile') <= 0) {
+            if (ua.indexOf('iPad') <= 0 && ua.indexOf('Android') <= 0) {
+                $(this).css('height','15px');
+            }
+        }
+    });
+
+    $('.retweet-header').on('mouseout',function() {
+        if (ua.indexOf('iPhone') <= 0 && ua.indexOf('Mobile') <= 0) {
+            if (ua.indexOf('iPad') <= 0 && ua.indexOf('Android') <= 0) {
+                $(this).css('height','10px');
+            }
+        }
+    });
+
 
     $('.retweet-header').click(function(){
         var rc = $(this).next('.retweet-content');
