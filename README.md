@@ -15,8 +15,8 @@ Rails 4.2.7.1
 Cloud 9
 MacOS + Chrome, iOS (iPhone 6s) + safariで動作確認
 
-(デプロイ環境)
-Heroku + fog+ AWS S3
+(デプロイ環境)  
+Heroku + fog + AWS S3
 
 ### ○ 使い方
 
@@ -87,7 +87,7 @@ https://tweetie-app.herokuapp.com/
 
 + /partials/ - パーシャルを格納
 
-  * _header.html.erb              ヘッダー部分(navbar) ロゴやリンクなど､オプションsrchpathを指定すると検索窓を表示(出さない場合はfalseにする)
+  * _header.html.erb              ヘッダー部分(navbar) ロゴやリンクなど､オプションsrchpathを指定すると検索窓を表示(出さない場合はfalseにする)
   * _alert.html.erb               警告表示用､noticeは1行表示､alertは1行､複数行のどちらにも対応
   * _new_tweet.html.erb           新規ツイート投稿用のフォームを表示する(既存ツイートを編集する際にも使用できる)
   * _render_one_tweet.html.erb    ツイートを一つ表示する
