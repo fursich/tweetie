@@ -135,6 +135,9 @@ https://tweetie-app.herokuapp.com/
     * class_by_emotion(emotion) 与えられたemotionごとに､該当する絵文字を表すクラス名を戻す｡  
                                 (reactionオブジェクトのデータに対して､絵文字を対応させている)
 
++ tweets_helper.rb
+    * my_tweet?(tweet) tweetがcurrent_userのツイートかどうかを判定する
+
 **javascripts**
 
 + reactions.js
