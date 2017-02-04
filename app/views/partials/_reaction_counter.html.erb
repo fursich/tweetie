@@ -1,0 +1,15 @@
+
+<!--ツイートごとのリアクションボタンを表示-->
+<!--t: 対象となるTweetオブジェクト-->
+
+<% Reaction.emotions.each do |emotion, emotion_id| %>
+  <% next if emotion == :na %>
+
+  <% ct = t.count_reactions_by_emotion_id(emotion_id) %>
+  <% unless ct==0 %>
+      <div class = "<%= class_by_emotion(emotion) %>">
+          <span class = "emotion-ctr-text"><%= ct %></span>
+      </div>
+  <% end %>
+
+<% end %>

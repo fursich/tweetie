@@ -47,6 +47,9 @@
           <%= t.content %>
       <% end %>
     </div>
+    <div class='reaction-counter-container'>
+      <%= render 'partials/reaction_counter', t: t %>
+    </div>
     <div class='reaction-buttons-container'>
       <%= render 'partials/reaction_buttons', t: t %>
     </div>

@@ -1,6 +1,15 @@
 
 $(function(){
 
+    $('.reaction-buttons-container').hide();
+    $('.per-tweet').mouseenter(function(){
+        $(this).find('.reaction-buttons-container').slideDown('fast');
+    });
+    $('.per-tweet').mouseleave(function(){
+        $(this).find('.reaction-buttons-container').slideUp('fast');
+    });
+
+
     $('.emotion-icon').on('ajax:complete', function(event, data, status){
         
         if (status=='success') {
@@ -19,6 +28,12 @@ $(function(){
                 } else {
                     $(this).removeClass('selected');
                     $(this).addClass('not-selected');
+                }
+
+                var ctr = $(this).closest('.user-tweet').find('.reaction-counter-container');
+                ctr.empty();
+                if (jsonData.html != false) {
+                    ctr.html(jsonData.html);
                 }
 
             }

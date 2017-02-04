@@ -134,9 +134,36 @@
                     margin: 4px 0 0 0;
                     height: auto;
                 }
+
+                
+                .reaction-counter-container {
+                    margin-top: 5px;
+                    .emotion-ctr-text {
+                        margin-left: 20px;
+                        font-size: 120%;
+                        font-weight: bold;
+                    }
+                    .em {
+                        font-size: 80%;
+                        margin-right: 15px;
+                    }
+                    .like-icon {
+                    }
+                    .love-icon {
+                    }
+                    .laugh-icon {
+                    }
+                    .wonder-icon {
+                    }
+                    .weep-icon {
+                    }
+                    .anger-icon {
+                    }
+                }
+
                 .reaction-buttons-container {
                     width: 120px;
-                    margin-top: 2px;
+                    margin-top: 12px;
                     text-align: center;
 
                     .emotion-icon.selected {

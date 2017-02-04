@@ -41,8 +41,8 @@ class Tweet < ActiveRecord::Base
         return counter
     end
 
-    def count_reactions_by_emotion (emotion)
-        self.reactions.where(:emotion, emotion).count
+    def count_reactions_by_emotion_id (emotion_id)
+        self.reactions.where('emotion=?', emotion_id).count
     end
     
 end

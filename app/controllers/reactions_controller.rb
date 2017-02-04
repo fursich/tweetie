@@ -25,7 +25,7 @@ class ReactionsController < ApplicationController
       result: 'success',
       tweet_id: @target_tweet.id,
       has_emotion: @has_emotion,
-      html: emotion_icons_partial
+      html: reaction_counter_partial
       }
     else
       {
@@ -35,9 +35,9 @@ class ReactionsController < ApplicationController
 
   end
 
-  def emotion_icons_partial
-    return nil unless @target_tweet.has_any_reactions?
-    render_to_string partial: 'partials/reaction_buttons', formats: :html, locals: {t: @target_tweet}
+  def reaction_counter_partial
+    return false unless @target_tweet.has_any_reactions?
+    render_to_string partial: 'partials/reaction_counter', formats: :html, locals: {t: @target_tweet}
   end
   
 end
