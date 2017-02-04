@@ -1,20 +1,24 @@
 
 <!--メッセージ･アラート機能-->
 
-<p class='notice'><%= notice if flash[:notice].present? %></p>
-
-<!--flash[:alert]は､ハッシュだけでなくdeviseから文字列でも渡されることもあるので､処理を分ける-->
-
-<p class='alert'>
-
-<% if flash[:alert].present? %>
-  <% if flash[:alert].is_a?(String) %>
-    <%= alert %>
-  <% elsif flash[:alert].is_a?(Array) %>
-    <% flash[:alert].each do |message| %>
-      <%= message %>
+<div class='system-message-container'>
+  
+  <div id='notice'><%= notice if flash[:notice].present? %></div>
+  
+  <!--flash[:alert]は､ハッシュだけでなくdeviseから文字列でも渡されることもあるので､処理を分ける-->
+  
+  <div id='alert'>
+  
+  <% if flash[:alert].present? %>
+    <% if flash[:alert].is_a?(String) %>
+      <%= alert %>
+    <% elsif flash[:alert].is_a?(Array) %>
+      <% flash[:alert].each do |message| %>
+        <%= message %>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
+  
+  </div>
 
-</p>
+</div>

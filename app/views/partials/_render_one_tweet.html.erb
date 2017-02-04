@@ -4,11 +4,14 @@
 <!--パーシャル変数:-->
 <!-- t･･描画したいデータが入った･Tweetインスタンス-->
 
-<div class='per-tweet row'>
+
+<div class="per-tweet row <%= (my_tweet?(t) ? 'per-mine' : 'per-others') %>" >
 
   <div class='user-image col-xs-1'>
     <div class='prof-image-box'>
-      <%= image_tag t.user.image_url, class: 'prof-image' %>
+      <%= link_to user_path(t.user.id) do %>
+        <%= image_tag t.user.image_url, class: 'prof-image' %>
+      <% end %>
     </div>
   </div>
   

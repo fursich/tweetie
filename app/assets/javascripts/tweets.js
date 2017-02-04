@@ -60,15 +60,15 @@ $(function(){
       if (status == 'success') {
 
           var json = JSON.parse(data.responseText);
-          $('p.notice').empty();
-          $('p.alert').empty();
+          $('#notice').empty();
+          $('#alert').empty();
 
           if (json.result=='success') {
               $('.tweet-container').prepend(json.html);
               $(this)[0].reset();
             } else if (json.result=='failure') {
-              $('p.alert').empty();
-              $('p.alert').append(json.error_message);
+              $('#alert').empty();
+              $('#alert').append(json.error_message);
             }
 
       }

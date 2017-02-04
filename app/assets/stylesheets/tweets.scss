@@ -1,9 +1,10 @@
 
      
 .new-tweet-container {
+    margin-bottom: 40px;
     text-align: right;
     .new-tweet-box {
-        margin: 60px 0 0 0;
+        margin: 0;
         .new-tweet {
             border: 2px solid #68A346;
             border-radius: 10px;
@@ -18,7 +19,8 @@
 }
 
 .timeline {
-    margin-top: 50px;
+    margin-top: 20px;
+    margin-bottom: 60px;
     .option-wrapper {
         .option-show-reply {
             text-align: right;
@@ -33,7 +35,7 @@
     .tweet-container {
         border: 1px solid #5Ba956;
         border-radius: 5px;
-        background-color: #ECFAD4;
+        background-color: #F4FFF2;
 
         .retweet-header {
             float: right;
@@ -46,6 +48,9 @@
             border-left: 1px solid #A1B099;
             border-bottom: 1px solid #629446;
             border-bottom-left-radius: 6px;
+        }
+        .per-tweet.per-mine {
+            background-color: #EAF8D2;
         }
         .per-tweet {
             margin: 0;
@@ -182,7 +187,6 @@
     .tweet-del-btn {
         text-align: right;
         .btn {
-            margin-top: 30px;
             font-size: 80%;
         }
     }

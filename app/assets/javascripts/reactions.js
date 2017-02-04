@@ -2,10 +2,10 @@
 $(function(){
 
     $('.reaction-buttons-container').hide();
-    $('.per-tweet').mouseenter(function(){
+    $('.index .per-tweet').mouseenter(function(){
         $(this).find('.reaction-buttons-container').slideDown('fast');
     });
-    $('.per-tweet').mouseleave(function(){
+    $('.index .per-tweet').mouseleave(function(){
         $(this).find('.reaction-buttons-container').slideUp('fast');
     });
 

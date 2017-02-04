@@ -8,6 +8,8 @@
 
 <!-- reply_to･･･返信の場合､返信元のidが入る｡falseの場合は新規･既存ツイート(retweet_i上書きせず)-->
 <!--ajax_post･･･trueの場合､ajax更新-->
+<!--btn･･･ボタンに表示される文字(投稿､編集､返信)-->
+
 
 <div class='new-tweet-container'>
 
@@ -22,7 +24,7 @@
         <% end %>
   
       </div>
-      <%= f.submit '投稿', class: 'btn submit-btn' %>
+      <%= f.submit btn, class: 'btn submit-btn' %>
     <% end %>
 
   <% else %>
@@ -36,7 +38,7 @@
         <% end %>
   
       </div>
-      <%= f.submit '投稿', class: 'btn submit-btn' %>
+      <%= f.submit btn, class: 'btn submit-btn' %>
     <% end %>
   <% end %>
   
