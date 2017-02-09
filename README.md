@@ -2,7 +2,12 @@
 # tweetie
 
 Twitterをイメージした会話用アプリケーションです｡  
-ログイン機能､画像アップロード､プロフィール編集､検索､ページネーション機能など基本的な機能を備えたcrudアプリケーションです｡  
+
+
+![tweetie](https://raw.githubusercontent.com/fursich/tweetie/master/public/images/screen_shot.png)
+
+
+ログイン機能､画像アップロード､フォロー/アンフォロー､プロフィール編集､検索､ページネーション機能など基本的な機能を備えたcrudアプリケーションです｡  
 bootstrap3によるレスポンシブ対応｡  
 
 last update:  
