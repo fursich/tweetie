@@ -6,7 +6,7 @@ Twitterをイメージした会話用アプリケーションです｡
 bootstrap3によるレスポンシブ対応｡  
 
 last update:  
-2017/2/4  ツイートに対するリアクションボタン(笑顔や♥などのアイコン)を追加
+2017/2/9  フォロー･アンフォロー機能を追加､UIを一部変更
 
 ### ○ 環境
 
@@ -60,6 +60,7 @@ https://tweetie-app.herokuapp.com/
 + ツイート一覧画面(ログイン後のトップページ､左上ロゴをクリックすると常に戻れる)
 + ツイート編集･削除画面(自分のツイートのみ) ･･･ ツイートしたテキスト自体がリンクになっている
 + ツイート詳細画面(親ツイート表示をクリックすることで､返信元をたどることも可能)･･･ツイート時間を表すテキストをクリックする
++ 検索結果表示画面
 + ユーザー情報詳細画面･･･ツイート内のユーザー名や､バー右上のログインユーザー名をクリックすると表示される
 + プロフィール情報変更画面(自分のみ)･･･プロフィール､画像､パスワードなど変更する場合
 + ログイン画面､新規登録画面
@@ -73,9 +74,11 @@ https://tweetie-app.herokuapp.com/
 
 + users_controller - ユーザー表示画面用､ここから検索かけた場合のみ､ユーザー縛りで検索がかかる(結果は同じ画面で表示)
 
-+ user_configs_controller - 画面の表示設定を切り替えた際の処理(表示はajax処理のため､バックグラウンドでconfigデータ更新のみ行う)
++ user_configs_controller - 画面の表示設定(フォロー表示/返信表示モード)切り替え処理(表示はajax処理のため､バックグラウンドでconfigデータ更新のみ行う)
 
 + reactions_controller - ツイートに対するリアクションがあった時の､ajax表示･データ更新
+
++ relationships_controller - ユーザー間のフォロー･非フォロー切り替え操作
 
 **View**
 
@@ -94,11 +97,14 @@ https://tweetie-app.herokuapp.com/
   * _header.html.erb              ヘッダー部分(navbar) ロゴやリンクなど､オプションsrchpathを指定すると検索窓を表示(出さない場合はfalseにする)
   * _alert.html.erb               警告表示用､noticeは1行表示､alertは1行､複数行のどちらにも対応
   * _new_tweet.html.erb           新規ツイート投稿用のフォームを表示する(既存ツイートを編集する際にも使用できる)
-  * _render_one_tweet.html.erb    ツイートを一つ表示する
+  * _render_one_tweet.html.erb    ツイートを一つ描画する
   * _trace_tweets.html.erb        ツイートを連続的に表示する｡表示対象から､再帰的に返信先をたどることで表示｡
+  * _ajax_new_tweet.html.erb      新規ツイートポスト時のajax更新用パーシャル
   * _user_profile.html.erb        ユーザープロフィール表示画面をつくる
   * _reaction_counter.html.erb    ツイートに対するリアクションを表示するカウンター
   * _reaction_buttons.html.erb    ツイートにリアクションをつけるためのボタン
+  * _config_options.html.erb      index画面における表示設定切り替え用タブ･チェックボックス描画  
+  * _user_account_info.html.erb   管理者用のユーザー一覧画面(ログイン日時､ロック状況などの表示)    
 
 **Model**
 
@@ -128,6 +134,10 @@ https://tweetie-app.herokuapp.com/
     * UserとTweetに所属し､あるツイートに対する､特定のユーザーのリアクションを保存する
     * emotion: enumを使って､複数種類のリアクションから1つを選ぶ
 
++ relationship.rb
+
+    * フォロー/被フォローという､ユーザー間の非対称の多対多関係を表現するモデル
+
 **Helper**
 
 + reactions_helper.rb
@@ -150,6 +160,10 @@ https://tweetie-app.herokuapp.com/
 
     * メイン画面における主要な機能
     * ツイート投稿をajax処理
+    
++ user_configs.js
+
+    * フォロワー以外の表示･非表示切り替え
     * 返信画面の表示･非表示切り替え
 
 **CSS**
@@ -168,7 +182,7 @@ https://tweetie-app.herokuapp.com/
 
 + ja.yml - I18nデフォルト
 
-+ tweet.je.yml - 使われていない
++ tweet.ja.yml - 使われていない
 
 ### ○ Gem
 
@@ -189,4 +203,5 @@ https://tweetie-app.herokuapp.com/
 2017/1/31 管理者機能を追加  
 2017/2/1  ajax投稿･返信機能追加｡返信画面の畳み込み機能追加  
 2017/2/3  ユーザーごとの表示設定を追加｡ajaxで記録し次回ログイン時に反映(現状､返信画面表示･非表示の設定のみ)  
-2017/2/4  ツイートに対するリアクションボタン(笑顔や♥などのアイコン)を追加
+2017/2/4  ツイートに対するリアクションボタン(笑顔や♥などのアイコン)を追加  
+2017/2/9  フォロー･アンフォロー機能を追加､UIを一部変更
