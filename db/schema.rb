@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170202125913) do
+ActiveRecord::Schema.define(version: 20170208052225) do
 
   create_table "reactions", force: :cascade do |t|
     t.integer  "emotion",    limit: 1, default: 0, null: false
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(version: 20170202125913) do
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
   end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
+  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
 
   create_table "tweets", force: :cascade do |t|
     t.integer  "user_id",    null: false
@@ -30,11 +41,11 @@ ActiveRecord::Schema.define(version: 20170202125913) do
   end
 
   create_table "user_configs", force: :cascade do |t|
-    t.integer  "user_id",                            null: false
-    t.boolean  "show_reply",          default: true, null: false
-    t.boolean  "restrict_unfollowed", default: true, null: false
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.integer  "user_id",                             null: false
+    t.boolean  "show_replies",        default: true,  null: false
+    t.boolean  "show_followers_only", default: false, null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   create_table "users", force: :cascade do |t|

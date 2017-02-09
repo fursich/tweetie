@@ -2,6 +2,11 @@ class User < ActiveRecord::Base
   has_many :tweets, dependent: :destroy
   has_many :emotions, dependent: :destroy
   has_one :user_config, dependent: :destroy
+  has_many :outgoing_relationships, class_name: :Relationship, foreign_key: :follower_id, dependent: :destroy
+  has_many :incoming_relationships, class_name: :Relationship, foreign_key: :followed_id, dependent: :destroy
+
+  has_many :following, through: :outgoing_relationships, source: :followed
+  has_many :followers, through: :incoming_relationships, source: :follower
 
   VALID_NAME =  /\A[a-zA-Z0-9_]+\z/  #アカウント名はアルファベット/数字/アンダースコアのみとする｡冒頭がアンダースコア､アンダースコア複数連結などは許可
   validates :name, presence: true, uniqueness: true, length: {minimum: 4, maximum: 20}, format: { with: VALID_NAME }
@@ -22,4 +27,18 @@ class User < ActiveRecord::Base
   def admin?
     !!self.admin
   end
+  
+  def follow!(another_user)
+    outgoing_relationships.create(followed_id: another_user.id)
+  end
+  def unfollow!(another_user)
+    outgoing_relationships.find_by(followed_id: another_user.id).destroy
+  end
+  def following?(another_user)
+    following.include?(another_user)
+  end
+  def followed_by?(another_user)
+    followers.include?(another_user)
+  end
+  
 end

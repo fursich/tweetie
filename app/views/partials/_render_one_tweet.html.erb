@@ -4,8 +4,7 @@
 <!--パーシャル変数:-->
 <!-- t･･描画したいデータが入った･Tweetインスタンス-->
 
-
-<div class="per-tweet row <%= (my_tweet?(t) ? 'per-mine' : 'per-others') %>" >
+<div class="per-tweet row <%= (my_tweet?(t) ? 'per-mine' : 'per-others') %> <%= (current_user.following?(t.user) ? 'followed' : 'not-followed') %>" >
 
   <div class='user-image col-xs-1'>
     <div class='prof-image-box'>

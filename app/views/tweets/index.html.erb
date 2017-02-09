@@ -17,9 +17,11 @@
       
         <%= render 'partials/config_options' %>
         
-        <div class='tweet-container'>
+        <div class='tweet-box'>
           <% @tweets.each do |tweet| %>
-            <%= render 'partials/trace_tweets', t: tweet %>
+            <div class='tweet-container'>
+              <%= render 'partials/trace_tweets', t: tweet %>
+            </div>
           <% end %>
         </div>
         

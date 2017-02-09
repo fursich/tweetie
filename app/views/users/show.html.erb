@@ -13,9 +13,11 @@
 
       <div class="timeline">
       
-        <div class='tweet-container'>
+        <div class='tweet-box'>
           <% @tweets.each do |tweet| %>
-            <%= render 'partials/render_one_tweet', t: tweet %>
+            <div class='tweet-container'>
+              <%= render 'partials/render_one_tweet', t: tweet %>
+            </div>
           <% end %>
         </div>
         

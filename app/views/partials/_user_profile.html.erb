@@ -50,5 +50,18 @@
     <% end %>
 
   </div>
+
 </div>
+
+<div class='user_follow'>
+  <% if u.id!=current_user.id %>
+    <% if current_user.following?(u) %>
+      <%= button_to "フォロー中", relationships_path(user_id: u.id), method: :post, class: "btn btn-warning" %>
+    <% else %>
+      <%= button_to "フォローする", relationships_path(user_id: u.id),  method: :post, class: "btn btn-success" %>
+    <% end %>
+  <% end %>
+</div>
+  
+
 

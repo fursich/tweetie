@@ -6,7 +6,7 @@
     .new-tweet-box {
         margin: 0;
         .new-tweet {
-            border: 2px solid #68A346;
+            border: 2px solid #2dad0e;
             border-radius: 10px;
         }
     }
@@ -14,7 +14,7 @@
         margin: 2px 0 0 0;
         font-size: 90%;
         color: #FFF;
-        background: linear-gradient(#689a72 0%,#406f40 100%);
+        background: linear-gradient(#5ed85e 0%, #6ab553 100%);
     }
 }
 
@@ -22,44 +22,71 @@
     margin-top: 20px;
     margin-bottom: 60px;
     .option-wrapper {
-        .option-show-reply {
-            text-align: right;
+        #option-show-followers-only {
+            font-size: 90%;
             color: #464;
+            border-bottom: none;
+            li {
+               border-radius: 20px; 
+            }
+            a:link {
+                text-decoration: none;
+                color: #20841a;
+            }
+            a:visited {
+                text-decoration: none;
+                color: #20841a;
+            }
+            a:hover {
+                text-decoration: none;
+                font-weight: bold;
+                color: #20841a;
+            }
+        }
+        .option-show-replies {
+            margin-top: 20px;
+            float: right;
+            color: #75c175;
             font-size: 50%;
-            #show-reply-checkbox:checked {
+            #show-replies-checkbox:checked {
                 background-color: #795;
                 color: #fff;
             }
         }
     }
+    .tweet-box {
+        margin: 0;
+        padding: 5px 15px;
+        background-color: #70e88f;
+        border-radius: 10px;
+    }
     .tweet-container {
-        border: 1px solid #5Ba956;
-        border-radius: 5px;
-        background-color: #F4FFF2;
+        margin-top: 15px;
 
         .retweet-header {
             float: right;
             height: 10px;
+            width: 100%;
             @media (max-width: 768px) {
                 height: 12px;
             }
-            width: 99%;
-            background-color: #85BF63;
-            border-left: 1px solid #A1B099;
-            border-bottom: 1px solid #629446;
+            background-color: #6ab943;
             border-bottom-left-radius: 6px;
-        }
-        .per-tweet.per-mine {
-            background-color: #EAF8D2;
         }
         .per-tweet {
             margin: 0;
             padding: 15px 10px 10px 10px;
 
-            min-height: 95px;
-            border-bottom: 1px solid #eee;
+            min-height: 105px;
+            border-radius: 10px;
+            background-color: #dffbd9;
+            border-bottom: 1px solid #c8dec3;
     
             font-size: 95%;
+
+            &.per-mine {
+                background-color: #ffffff;
+            }
     
             .user-image {
                 margin: 0;
@@ -93,20 +120,20 @@
                 overflow-wrap: break-word;
                 word-wrap: break-word;
                 margin-top: -3px;
-                color: #444;
+                color: #9eb59e;
 
                 a:link {
                     text-decoration: none;
-                    color: #444;
+                    color: #9eb59e;
                 }
                 a:visited {
                     text-decoration: none;
-                    color: #444;
+                    color: #9eb59e;
                 }
                 a:hover {
                     text-decoration: none;
                     font-weight: bold;
-                    color: #131;
+                    color: #9eb59e;
                 }
 
                 .tweet-header {
@@ -138,6 +165,17 @@
                 .tweet-content {
                     margin: 4px 0 0 0;
                     height: auto;
+                    color: #2d462d;
+                        a:link {
+                            color: #2d462d;
+                        }
+                        a:visited {
+                            color: #2d462d;
+                        }
+                        a:hover {
+                            color: #2d462d;
+                            font-weight: normal;
+                        }
                 }
 
                 

@@ -5,12 +5,13 @@ class TweetsController < ApplicationController
   before_action :init_srch_query, only: [:index, :show, :edit, :search]  #検索窓用のサーチクエリをセットする
   
   def index
-    @tweet = Tweet.new
+    @user_config = UserConfig.find_or_initialize_by(user_id: current_user.id)
+
     @tweets = Tweet.all.includes(:retweets, :user).first_tweets.page(params[:page]).per(10).order('created_at DESC')
     # first_tweetsは､オリジナルのTweet(返信ではないもの)だけを返すTweetモデルのscope
     # 検索結果はsearchコントローラーで別に処理｡(返信も検索対象に含めて表示させたいので､処理を分けている)
 
-    @user_config = UserConfig.find_or_initialize_by(user_id: current_user.id)
+    @tweet = Tweet.new
   end
   
   def search
@@ -49,7 +50,7 @@ class TweetsController < ApplicationController
           redirect_to action: :index
         end
         format.json do
-          new_html = render_to_string partial: 'partials/render_one_tweet', formats: :html, locals: {t: @tweet}
+          new_html = render_to_string partial: 'partials/ajax_new_tweet', formats: :html, locals: {t: @tweet}
           render json: {result: 'success', html: new_html}
         end
       end

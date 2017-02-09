@@ -10,15 +10,20 @@
 
 <%= render 'partials/render_one_tweet', t: t %>
 
-<% t.retweets.each do |retweet| %>
-  <div class='retweet-header'>
-  </div>
+<% if t.retweets.count>0 %>
   <div class='row retweet-content'>
     <div class='col-xs-1'></div>
-    <div class='col-xs-11'>
-      <%= render 'partials/trace_tweets', t: retweet %>
+    <div class='col-xs-11 retweet-box'>
+      <div class='retweet-header'></div>
+
+      <% t.retweets.each do |retweet| %>
+        <div class='retweet-body'>
+          <%= render 'partials/trace_tweets', t: retweet %>
+        </div>
+      <% end %>
+
     </div>
   </div>
 <% end %>
 
-  
+

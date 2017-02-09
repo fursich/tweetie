@@ -3,8 +3,15 @@
 
 
 <div class='option-wrapper'>
-  <div class='option-show-reply'>
-    <%= label_tag 'show-reply-checkbox', '返信を全て表示' %>
-    <%= check_box_tag 'show-reply-checkbox', true, @user_config.show_reply %>
+
+  <div class='option-show-replies'>
+    <%= label_tag 'show-replies-checkbox', '返信を全て表示' %>
+    <%= check_box_tag 'show-replies-checkbox', true, @user_config.show_replies %>
   </div>
+
+  <ul class="nav nav-tabs", id="option-show-followers-only">
+    <li role="presentation" class="tab tab-all <%='active' if !@user_config.show_followers_only %>"><a href="#">すべて</a></li>
+    <li role="presentation" class="tab tab-followers-only <%= 'active' if @user_config.show_followers_only %>"><a href="#">フォロー中</a></li>
+  </ul>
+
 </div>
