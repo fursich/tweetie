@@ -1,5 +1,4 @@
 class UserConfigsController < ApplicationController
-    skip_before_filter :verify_authenticity_token
 
     def create
         @user_conf = UserConfig.find_or_initialize_by(user_id: current_user.id)
