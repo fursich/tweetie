@@ -87,6 +87,19 @@
             width: 100px;
         }
     }
+    .reset-pwd-box {
+        padding: 10px;
+        .reset-pwd-msg {
+            margin: 10px 0;
+            font-size: 95%;
+        }
+        .reset-pwd-btn {
+            margin: 0;
+            margin-top: -10px;
+            float: right;
+        }
+    }
+
     .back-link {
         margin-top: 15px;
     }

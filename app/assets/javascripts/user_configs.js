@@ -71,7 +71,7 @@ $(function(){
                 datatype: 'html',
             });
         } else {
-            $('.retweet-body').hide();
+            $('.retweet-body').slideUp();
             $.ajax ({
                 url: '/user_configs',
                 type: 'post',

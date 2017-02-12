@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
 
+  before_action :find_user, only: [:update, :follower_list, :following_list]
+
   def index
     @users = User.all.includes(:tweets).page(params[:page]).per(10).order('current_sign_in_at DESC')
 
   end
+  
   def show
     @user = User.includes(:tweets).find(params[:id])
     @q = @user.tweets.includes(:user).search(params[:q])
@@ -13,7 +16,6 @@ class UsersController < ApplicationController
   end
   
   def update
-    @user = User.find(params[:id])
     if @user.access_locked?
       @user.unlock_access!
     else
@@ -21,5 +23,18 @@ class UsersController < ApplicationController
     end
     
     redirect_to action: :index
+  end
+  
+  def follower_list
+    @users = @user.followers.page(params[:page]).per(10).order('current_sign_in_at DESC')
+  end
+
+  def following_list
+    @users = @user.following.page(params[:page]).per(10).order('current_sign_in_at DESC')
+  end
+
+  private
+  def find_user
+    @user = User.find(params[:id])
   end
 end

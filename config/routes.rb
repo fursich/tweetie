@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root to: 'tweets#index'
 
-  devise_for :users
+  devise_for :users, :path_prefix => 'devise'
   
   resources :tweets do
     collection do
@@ -10,7 +10,13 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :users, only: [:index, :show, :update]
+  resources :users, only: [:index, :show, :update] do
+    member do
+      get 'follower_list'
+      get 'following_list'
+    end
+  end
+  
   resources :user_configs, only: [:create]
   resources :reactions, only: [:create]
   resources :relationships, only: [:create]

@@ -5,13 +5,18 @@
 <!-- u:描画するユーザーデータを保持したUserインスタンス-->
 
 
-<span class='user-login-datetime'>
-    最終ログイン日時：<br class='visible-xs-inline'>
-    <%= u.current_sign_in_at.strftime("%Y-%m-%d %H:%M:%S") %><br />
-</span>
+
+<div class='user-follow-status'>
+  <%= link_to user_path(u.id) do %><%= u.tweets.count %><% end %>件のツイート　<br class='visible-xs-inline'>
+  <%= link_to following_list_user_path(u.id) do %><%= u.following.count %><% end %>人をフォロー中　<br class='visible-xs-inline'>
+  <%= link_to follower_list_user_path(u.id) do %><%= u.followers.count %><% end %>人のフォロワー
+</div>
 
 <% if current_user.admin? %>
-  <br />
+  <span class='user-login-datetime'>
+      最終ログイン日時：<br class='visible-xs-inline'>
+      <%= u.current_sign_in_at.strftime("%Y-%m-%d %H:%M:%S") %><br />
+  </span>
   <span class='user-login-datetime'>
       最終ログインIP：<br class='visible-xs-inline'>
       <%= u.last_sign_in_ip %><br />
@@ -25,3 +30,4 @@
       <%= u.access_locked? ? 'locked' : '-' %><br />
   </span>
 <% end %>
+

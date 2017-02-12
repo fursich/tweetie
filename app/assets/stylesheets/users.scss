@@ -1,19 +1,29 @@
+.follow-list-title {
+    margin-bottom: 10px;
+    font-size: 110%;
+    font-weight: bold;
+}
 .user-profile {
     
     margin: 10px 0 10px 0;
+    padding: 10px;
     border: 1px solid #adb;
     border-radius: 10px;
     background-color: rgba(250,255,250,0.9);
 
     .user-image {
         .prof-image-box {
-            margin: 25px 0;
+            margin: 25px 0 5px 0;
             position: relative;
             left: 5px;
-            width: 110px;
-            height: 110px;
+            width: 60px;
+            height: 60px;
             overflow: hidden;
             border-radius: 8px;
+            @media (min-width: 769px) {
+                width: 110px;
+                height: 110px;
+            }
     
             .prof-image {
                 position: absolute;
@@ -22,6 +32,23 @@
                 height: 100%;
                 width: 100%;
                 margin: 0 auto;
+            }
+        }
+        .user_follow{
+            margin: 15px 0 15px 0pt;
+            text-align: left;
+            @media (min-width: 769px) {
+                margin: 15px 0 15px 10pt;
+            }
+            .btn {
+                padding-left: 3px;
+                padding-right: 3px;
+                width: 50pt;
+                font-size: 60%;
+                @media (min-width: 769px) {
+                    width: 90px;
+                    font-size: 90%;
+                }
             }
         }
     }
@@ -54,9 +81,49 @@
                     font-wight: bold;
                 }
             }
+            .user-lock-btn {
+                float: right;
+                margin: 0;
+                @media (min-width: 769px) {
+                    margin-right: 10px;
+                }
+                .btn {
+                    padding: 0;
+                    width: 40px;
+                    height: 20px;
+                    font-size: 50%;
+                    @media (min-width: 769px) {
+                        width: 90px;
+                        font-size: 70%;
+                    }
+                }
+            }
             .user-login-datetime {
                 color: #933;
                 font-size: 80%;
+            }
+            .user-follow-status {
+                margin: 5px 0 5px 2px;
+                color: #5f695f;
+                font-size: 90%;
+                a:link {
+                    text-decoration: none;
+                    color: #124612;
+                    font-size: 110%;
+                    font-weight: bold;
+                }
+                a:visited {
+                    text-decoration: none;
+                    color: #124612;
+                    font-size: 110%;
+                    font-weight: bold;
+                }
+                a:hover {
+                    text-decoration: none;
+                    color: #124612;
+                    font-size: 110%;
+                    font-weight: bold;
+                }
             }
         }
         .user-prof-text {
@@ -74,20 +141,7 @@
                 font-size: 95%;
             }
         }
-        .user-lock-btn {
-            text-align: right;
-            margin-top: -20px;
-            margin-bottom: 10px;
-        }
     }
 
 }
 
-.user_follow{
-    margin-left: 5pt;
-    text-align: left;
-    .btn {
-        width: 80pt;
-        font-size: 90%;
-    }
-}

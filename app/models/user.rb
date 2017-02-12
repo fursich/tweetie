@@ -1,12 +1,12 @@
 class User < ActiveRecord::Base
   has_many :tweets, dependent: :destroy
-  has_many :emotions, dependent: :destroy
+  has_many :reactions, dependent: :destroy
   has_one :user_config, dependent: :destroy
   has_many :outgoing_relationships, class_name: :Relationship, foreign_key: :follower_id, dependent: :destroy
   has_many :incoming_relationships, class_name: :Relationship, foreign_key: :followed_id, dependent: :destroy
 
   has_many :following, through: :outgoing_relationships, source: :followed
-  has_many :followers, through: :incoming_relationships, source: :follower
+  has_many :followers, through: :incoming_relationships, source: :following
 
   VALID_NAME =  /\A[a-zA-Z0-9_]+\z/  #アカウント名はアルファベット/数字/アンダースコアのみとする｡冒頭がアンダースコア､アンダースコア複数連結などは許可
   validates :name, presence: true, uniqueness: true, length: {minimum: 4, maximum: 20}, format: { with: VALID_NAME }

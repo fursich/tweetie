@@ -44,13 +44,16 @@
             }
         }
         .option-show-replies {
-            margin-top: 20px;
+            margin-top: 10px;
             float: right;
             color: #75c175;
-            font-size: 50%;
+            font-size: 70%;
             #show-replies-checkbox:checked {
                 background-color: #795;
                 color: #fff;
+                @media (min-width: 769px) {
+                font-size: 50%;
+                }
             }
         }
     }

@@ -2,15 +2,15 @@
 $(function(){
 
     $('.reaction-buttons-container').hide();
-    $('.index .per-tweet').mouseenter(function(){
+    $(document).on('mouseenter', '.index div.per-tweet', function(){
         $(this).find('.reaction-buttons-container').slideDown('fast');
     });
-    $('.index .per-tweet').mouseleave(function(){
+    $(document).on('mouseleave', '.index div.per-tweet', function(){
         $(this).find('.reaction-buttons-container').slideUp('fast');
     });
 
 
-    $('.emotion-icon').on('ajax:complete', function(event, data, status){
+    $(document).on('ajax:complete', '.emotion-icon', function(event, data, status){
         
         if (status=='success') {
             var jsonData = JSON.parse(data.responseText);
@@ -35,6 +35,7 @@ $(function(){
                 if (jsonData.html != false) {
                     ctr.html(jsonData.html);
                 }
+
 
             }
         }
