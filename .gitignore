@@ -22,4 +22,4 @@
 .DS_Store
 
 #Ignore secret key
-/config/secrets.yml
+
