@@ -46,15 +46,23 @@
           <%= t.content %>
         <% end %>
       <% else %>
+        <%= link_to tweet_path(id: t.id) do %>
           <%= t.content %>
+        <% end %>
       <% end %>
     </div>
+
+
     <div class='reaction-counter-container'>
       <%= render 'partials/reaction_counter', t: t %>
     </div>
-    <div class='reaction-buttons-container'>
-      <%= render 'partials/reaction_buttons', t: t %>
-    </div>
+
+
+    <section class="reaction-btn-modal reaction-btn-modal-<%= t.id %>" id="reaction-btn-modal-id-<%= t.id %>">
+      <div class='reaction-buttons-container'>
+        <%= render 'partials/reaction_buttons', t: t %>
+      </div>
+    </section>
   </div>
 </div>
 

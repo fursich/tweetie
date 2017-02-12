@@ -1,5 +1,7 @@
 class UserConfigsController < ApplicationController
 
+    before_action :authenticate_user!  #ログインしていない場合はログイン画面に飛ばす
+
     def create
         @user_conf = UserConfig.find_or_initialize_by(user_id: current_user.id)
         @user_conf.attributes = user_conf_params

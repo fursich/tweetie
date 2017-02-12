@@ -1,4 +1,7 @@
 class ReactionsController < ApplicationController
+
+  before_action :authenticate_user!  #ログインしていない場合はログイン画面に飛ばす
+
   def create
     @target_tweet = Tweet.find(params[:tweet_id])
     @reaction = @target_tweet.reactions.find_or_initialize_by(user_id: current_user.id)
@@ -16,7 +19,7 @@ class ReactionsController < ApplicationController
       format.json {render json: render_json}
     end
   end
-  
+
   private
   
   def render_json

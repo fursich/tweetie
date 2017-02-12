@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
   
   resources :user_configs, only: [:create]
-  resources :reactions, only: [:create]
+  resources :reactions, only: [:create, :update]
   resources :relationships, only: [:create]
   
   

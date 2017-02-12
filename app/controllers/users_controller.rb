@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :find_user, only: [:update, :follower_list, :following_list]
+  before_action :authenticate_user!  #ログインしていない場合はログイン画面に飛ばす
 
   def index
     @users = User.all.includes(:tweets).page(params[:page]).per(10).order('current_sign_in_at DESC')

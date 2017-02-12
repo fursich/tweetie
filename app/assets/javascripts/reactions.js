@@ -1,13 +1,26 @@
 
 $(function(){
+    $('.reaction-btn-modal').hide();
+    // $('#reaction-btn-modal-id-29').show();
+    $(document).on('mouseenter', 'div.index div.per-tweet', function(){
+        var md = $(this).find('.reaction-btn-modal');
+        md.fadeIn('fast');
 
-    $('.reaction-buttons-container').hide();
-    $(document).on('mouseenter', '.index div.per-tweet', function(){
-        $(this).find('.reaction-buttons-container').slideDown('fast');
+        $(document).on('click touchend', function(event) {
+                md.fadeOut('fast');
+        });
     });
-    $(document).on('mouseleave', '.index div.per-tweet', function(){
-        $(this).find('.reaction-buttons-container').slideUp('fast');
+    $(document).on('mouseleave', 'div.index div.per-tweet', function(){
+        $(this).find('.reaction-btn-modal').fadeOut('fast');
     });
+
+    // $('.reaction-buttons-container').hide();
+    // $(document).on('mouseenter', '.index div.per-tweet', function(){
+    //     $(this).find('.reaction-buttons-container').slideDown('fast');
+    // });
+    // $(document).on('mouseleave', '.index div.per-tweet', function(){
+    //     $(this).find('.reaction-buttons-container').slideUp('fast');
+    // });
 
 
     $(document).on('ajax:complete', '.emotion-icon', function(event, data, status){

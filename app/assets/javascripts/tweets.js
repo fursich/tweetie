@@ -34,7 +34,7 @@ $(function(){
           if (json.result=='success') {
               $('div.tweet-box').prepend(json.html);
               $(this)[0].reset();
-              $('.reaction-buttons-container').hide();
+              $('.reaction-btn-modal').hide();
             } else if (json.result=='failure') {
               $('#alert').empty();
               $('#alert').append(json.error_message);
