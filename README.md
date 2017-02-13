@@ -5,7 +5,7 @@ Twitterをイメージした会話用アプリケーションです｡
 <br />
 <br />
 
-<img src="https://raw.githubusercontent.com/fursich/tweetie/master/public/images/tweetie_screenshot.png" width='600px' style='text-align: center'>
+<img src="https://raw.githubusercontent.com/fursich/tweetie/master/public/images/screenshots/tweetie_screenshot.png" width='600px' style='text-align: center'>
 
 <br />
 <br />
@@ -26,6 +26,53 @@ MacOS + Chrome, iOS (iPhone 6s) + safariで動作確認
 
 (デプロイ環境)  
 Heroku + fog + AWS S3  
+
+### 仕様
+
+#### ダッシュボード画面
+画面上では、ほとんどどの要素もクリック可能になっています。
+なるべくスムーズで直感的な操作ができるように意図しました。  
+
+<br />
+<br />
+
+<img src="https://raw.githubusercontent.com/fursich/tweetie/master/public/images/screenshots/tweetie_UI_2_overall.png" width='600px' style='text-align: center'>
+
+<br />
+<br />
+
++ ユーザー画像・ユーザー名をクリック
+ユーザープロフィール画面に移る。フォロー・アンフォローをしたり、プロフィールの確認、フォロワーやフォロー中のユーザーの確認が可能。   
+この画面で検索窓を使うと、表示されているユーザーのツイートだけに限定した検索がかけられる。  
+
++ ツイートされた文字要素、ツイート時間をクリック
+ツイート詳細画面へ移行。ツイートへの返信が可能です。  
+（編集可能なツイートの場合、ツイートの文字要素をクリックするとツイート編集・削除画面へ飛びます。ツイート詳細画面へ移る場合は、ツイート時間をクリックしてください。）  
+
++ リアクションボタン
+ツイートの近くにマウスを合わせると、いいね！などのアイコンを含むボタンが現れます。（押すとカウンターが変わります）  
+
++ 表示設定
+タイムライン上部のタブ・チェックボックスで、フォロー中のユーザーツイートのみ表示、返信を非表示にするといった画面設定が変えられます。  
+この設定はリアルタイムで保存され、次回ログイン時に反映されます。  
+
++ タイトルバー
+左上のロゴをクリックすることで、ログイン後どの画面にいても常にトップページに戻れます。ログアウトも常に可能です。  
+また検索窓、自分のプロフィール表示画面とプロフィール編集画面へのリンクもあります。  
+
+#### ユーザー認証画面
+ユーザー認証に関しては、deviseを利用したオーソドックスな仕様で、新規登録・サインイン・登録情報の編集・削除（退会）ができる。  
+管理者は同じモデル内のadmin属性にて判別する方式とし、管理者ごとの権限の差は設けていません。  
+
+<br />
+<br />
+
+<img src="https://raw.githubusercontent.com/fursich/tweetie/master/public/images/screenshots/tweetie_UI_1_auth.png" width='600px' style='text-align: center'>
+
+<br />
+<br />
+
+
 
 ### ○ 使い方
 
