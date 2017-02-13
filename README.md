@@ -244,7 +244,7 @@ https://tweetie-app.herokuapp.com/
 
 ### ○ Gem
 
-以下のgemを使用(説明は省略)
+以下のgemを使用
 
 + devise
 + carrierwave
