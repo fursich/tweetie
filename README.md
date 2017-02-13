@@ -5,8 +5,8 @@ Twitterをイメージした会話用アプリケーションです｡
 <br />
 <br />
 
-<div style='text-align: center'>
-<img src="https://raw.githubusercontent.com/fursich/tweetie/master/public/images/screenshots/tweetie_screenshot.png" width='800px'>
+<div style='text-align: center;'>
+<img src="https://raw.githubusercontent.com/fursich/tweetie/master/public/images/screenshots/tweetie_screenshot.png" width='700px'>
 </div>
 
 <br />
@@ -76,9 +76,8 @@ https://tweetie-app.herokuapp.com/
 <br />
 <br />
 
-<div style='text-align: center'>
-<img src="https://raw.githubusercontent.com/fursich/tweetie/master/public/images/screenshots/tweetie_UI_2_overall.png" width='800px' style='text-align: center'>
-</div>
+<div style='text-align: center;'>
+<img src="https://raw.githubusercontent.com/fursich/tweetie/master/public/images/screenshots/tweetie_UI_2_overall.png" width='800px'> </div>
 
 <br />
 <br />
@@ -115,8 +114,8 @@ https://tweetie-app.herokuapp.com/
 <br />
 <br />
 
-<div style='text-align: center'>
-<img src="https://raw.githubusercontent.com/fursich/tweetie/master/public/images/screenshots/tweetie_UI_1_auth.png" width='600px' style='text-align: center'>
+<div style='text-align: center;'>
+<img src="https://raw.githubusercontent.com/fursich/tweetie/master/public/images/screenshots/tweetie_UI_1_auth.png" width='600px'>
 </div>
 
 <br />
