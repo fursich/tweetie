@@ -18,9 +18,9 @@ bootstrap3によるレスポンシブ対応｡
 last update:  
 2017/2/12 リアクションボタンをポップアップ（モーダル）化、フォロワー・フォロー中の一覧表示を追加  
 
-
+<br />
 ### ○ 環境
-
+<br />
 ruby 2.4.0p0  
 Rails 4.2.7.1  
 Cloud 9  
@@ -28,8 +28,10 @@ MacOS + Chrome, iOS (iPhone 6s) + safariで動作確認
 
 (デプロイ環境)  
 Heroku + fog + AWS S3  
+<br />
 
 <hr />
+<br />
 ### 仕様
 
 #### ダッシュボード画面
