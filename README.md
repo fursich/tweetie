@@ -73,7 +73,7 @@ Heroku + fog + AWS S3
 <br />
 
 <div style='text-align: center'>
-<img src="https://raw.githubusercontent.com/fursich/tweetie/master/public/images/screenshots/tweetie_UI_1_auth.png" width='800px' style='text-align: center'>
+<img src="https://raw.githubusercontent.com/fursich/tweetie/master/public/images/screenshots/tweetie_UI_1_auth.png" width='600px' style='text-align: center'>
 </div>
 
 <br />
