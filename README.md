@@ -5,7 +5,7 @@ Twitterをイメージした会話用アプリケーションです｡
 <br />
 <br />
 
-<img src="https://raw.githubusercontent.com/fursich/tweetie/master/public/images/screenshots/tweetie_screenshot.png" width='600px' style='text-align: center'>
+<img src="https://raw.githubusercontent.com/fursich/tweetie/master/public/images/screenshots/tweetie_screenshot.png" width='800px' style='text-align: center'>
 
 <br />
 <br />
@@ -36,7 +36,7 @@ Heroku + fog + AWS S3
 <br />
 <br />
 
-<img src="https://raw.githubusercontent.com/fursich/tweetie/master/public/images/screenshots/tweetie_UI_2_overall.png" width='600px' style='text-align: center'>
+<img src="https://raw.githubusercontent.com/fursich/tweetie/master/public/images/screenshots/tweetie_UI_2_overall.png" width='800px' style='text-align: center'>
 
 <br />
 <br />
@@ -67,7 +67,7 @@ Heroku + fog + AWS S3
 <br />
 <br />
 
-<img src="https://raw.githubusercontent.com/fursich/tweetie/master/public/images/screenshots/tweetie_UI_1_auth.png" width='600px' style='text-align: center'>
+<img src="https://raw.githubusercontent.com/fursich/tweetie/master/public/images/screenshots/tweetie_UI_1_auth.png" width='800px' style='text-align: center'>
 
 <br />
 <br />
