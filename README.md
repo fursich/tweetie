@@ -76,7 +76,7 @@ https://tweetie-app.herokuapp.com/
 <br />
 <br />
 
-<div style='text-align: center;'>
+<div align='center'>
 <img src="https://raw.githubusercontent.com/fursich/tweetie/master/public/images/screenshots/tweetie_UI_2_overall.png" width='800px'> </div>
 
 <br />
@@ -114,7 +114,7 @@ https://tweetie-app.herokuapp.com/
 <br />
 <br />
 
-<div style='text-align: center;'>
+<div align='center'>
 <img src="https://raw.githubusercontent.com/fursich/tweetie/master/public/images/screenshots/tweetie_UI_1_auth.png" width='600px'>
 </div>
 
