@@ -5,7 +5,7 @@ Twitterをイメージした会話用アプリケーションです｡
 <br />
 <br />
 
-<div style='text-align: center;'>
+<div align='center'>
 <img src="https://raw.githubusercontent.com/fursich/tweetie/master/public/images/screenshots/tweetie_screenshot.png" width='700px'>
 </div>
 
