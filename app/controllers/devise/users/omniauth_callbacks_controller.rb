@@ -6,7 +6,7 @@ class Devise::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCont
     unless @user
       # ユーザが無い場合は作成
       @user = User.create(
-          name:     auth.extra.raw_info.username,
+          name:     'test',
           email:    dummy_email(auth),
           provider: auth.provider,
           provider_token:    auth.credentials.token,
@@ -22,9 +22,8 @@ class Devise::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCont
       set_flash_message(:notice, :success, kind: "Facebook") if is_navigational_format?
       sign_in_and_redirect @user, event: :authentication
     else
-      flash[:alert] = 'fail'
       session["devise.facebook_data"] = request.env["omniauth.auth"]
-      sign_in_and_redirect @user, event: :authentication
+      redirect_to new_user_registration_url
     end
   end
 
