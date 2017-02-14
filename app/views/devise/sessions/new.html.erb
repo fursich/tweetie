@@ -13,7 +13,7 @@
 
         <%= render 'partials/alert' %>
       
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
         <div class="form-group row">
           <div class='col-md-4 user-form-label'>
@@ -46,9 +46,19 @@
         <div class="form-group row">
           <div class='col-md-4 user-form-label'></div>
           <div class='col-md-8'>
-            <div class="actions">
+            <div class="actions login-btn">
               <%= f.submit "ログイン", class: 'btn oath-btn' %>
             </div>
+
+            <div class="social-login clearfix">
+              <%= link_to user_twitter_omniauth_authorize_path, class: 'btn twitter' do %>
+                <i class="fa fa-twitter-square"></i>  twitter
+              <% end %>
+              <%= link_to user_facebook_omniauth_authorize_path, class: 'btn facebook' do %>
+                <i class="fa fa-facebook-square"></i>  facebook
+              <% end %>
+            </div>
+
             <div class='links'>
               <%= render "devise/shared/links" %>
             </div>

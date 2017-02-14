@@ -41,9 +41,9 @@
       <% if current_user.admin? && !u.admin? %>
         <div class='user-lock-btn'>
           <% if u.access_locked? %>
-            <%= button_to "ロック中", user_path(id: u.id), method: :patch, class: "btn btn-danger" %>
+            <%= button_to "ロック中", alt_lock_user_path(id: u.id), method: :post, class: "btn btn-danger" %>
           <% else %>
-            <%= button_to "ロックする", user_path(id: u.id), method: :patch, class: "btn btn-success" %>
+            <%= button_to "ロックする", alt_lock_user_path(id: u.id), method: :post, class: "btn btn-success" %>
           <% end %>
         </div>
       <% end %>

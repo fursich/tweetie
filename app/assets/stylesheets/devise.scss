@@ -32,9 +32,41 @@
         margin-right: 30px;
     }
     .oath-btn {
-        margin-top: 5px;
+        margin-top: 10px;
         color: #FFF;
-        background: linear-gradient(#689a72 0%,#406f40 100%);
+        background: linear-gradient(#4EC84E 0%,#469B46 100%);
+    }
+    .login-btn .oath-btn {
+        float: left;
+    }
+
+    .social-login {
+        margin-bottom: 12px;
+        color: #FFF;
+        .btn.twitter {
+            margin-top: 15px;
+            margin-left: 10px;
+            width: 80px;
+            float: left;
+            background-color: #1DADEB;
+            font-size: 50%;
+            @media (min-width: 769px) {
+                float: right;
+                margin-left: 20px;
+            }
+        }
+        .btn.facebook {
+            margin-top: 15px;
+            margin-left: 10px;
+            width: 80px;
+            float: left;
+            background-color: #3D5B97;
+            font-size: 50%;
+            @media (min-width: 769px) {
+                float: right;
+                margin-left: 20px;
+            }
+        }
     }
     
     .image-file-area {
@@ -99,11 +131,31 @@
             float: right;
         }
     }
+    
 
     .back-link {
         margin-top: 15px;
     }
+    .btn.back-btn {
+        color: #fff;
+        background: linear-gradient(#0cc8e6 0%, #1279a0 100%);
+    }
+    a {
+        font-size: 95%;
+    }
+    a:link {
+        text-decoration: none;
+        color: #fff;
+    }
+    a:visited {
+        text-decoration: none;
+        color: #fff;
+    }
+    a:hover {
+        text-decoration: none;
+        font-weight: normal;
+        color: #fff;
+    }
 
-    
     
 }

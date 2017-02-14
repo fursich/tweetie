@@ -33,6 +33,11 @@ gem 'kaminari-bootstrap'
 gem 'ransack'
 
 gem 'fog'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+
+gem 'font-awesome-sass'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

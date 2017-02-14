@@ -39,6 +39,13 @@ ja:
         not_found_in_database: 'メールアドレスもしくはパスワードが違います。'
         locked: 'あなたのアカウントは凍結されています。'
 
+    omniauth_callbacks:
+      success: '%{kind} アカウントによる個人認証に成功しました。'
+  #      success: 'Successfully authenticated from %{kind} account.'
+      failure: '%{kind} アカウントによる個人認証に失敗しました（%{reason}）。'
+  #      failure: 'Could not authenticate you from %{kind} because "%{reason}".'
+
+
 
   confirmations:
     confirmed: 'アカウントを登録しました。'
