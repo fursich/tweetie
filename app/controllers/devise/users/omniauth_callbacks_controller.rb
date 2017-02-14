@@ -6,7 +6,7 @@ class Devise::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCont
     unless @user
       # ユーザが無い場合は作成
       @user = User.create(
-          name:     split_username_from_email(auth.info.email),
+          name:     dummy_name(split_address(auth.info.email),auth.provider),
           email:    dummy_email(auth),
           provider: auth.provider,
           provider_token:    auth.credentials.token,
@@ -33,7 +33,7 @@ class Devise::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCont
     unless @user
       # ユーザが無い場合は作成
       @user = User.create(
-          name:     login_name_via_sns(auth.info.nickname,auth.provider),
+          name:     dummy_name(auth.info.nickname,auth.provider),
           email:    dummy_email(auth),
           provider: auth.provider,
           provider_token:    auth.credentials.token,
@@ -58,10 +58,10 @@ class Devise::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCont
   def dummy_email(auth)
     "#{auth.provider}-#{auth.uid}@registered-via-sns.temp"
   end
-  def login_name_via_sns(name, provider)
+  def dummy_name(name, provider)
     "_#{name}_#{provider}".slice(0,20)
   end
-  def split_username_from_email(email)
+  def split_address(email)
     email.split('@')[0]
   end
 
