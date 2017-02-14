@@ -51,10 +51,14 @@ Twitter/Facebookアカウントでもログインできます。
 <br />
 ### 仕様
 
-### ダッシュボード画面を中心とした画面遷移  
+#### ダッシュボード画面を中心とした画面遷移  
 
 画面上では、ほとんどどの要素もクリック可能になっています。  
 なるべくスムーズで直感的な操作ができるように意図しました。  
+
+#### ユーザー認証画面  
+ユーザー認証に関しては、deviseを利用したオーソドックスな仕様で、新規登録・サインイン・登録情報の編集・削除（退会）ができます。  
+管理者は同じモデル内のadmin属性にて判別する方式とし、管理者ごとの権限の差は設けていません。  
 
 <br />
 <br />
@@ -62,9 +66,6 @@ Twitter/Facebookアカウントでもログインできます。
 <div align='center'>
 <img src="https://raw.githubusercontent.com/fursich/tweetie/master/public/images/screenshots/tweetie_UI_2_overall.png" width='800px'> </div>
 
-### ユーザー認証画面  
-ユーザー認証に関しては、deviseを利用したオーソドックスな仕様で、新規登録・サインイン・登録情報の編集・削除（退会）ができます。  
-管理者は同じモデル内のadmin属性にて判別する方式とし、管理者ごとの権限の差は設けていません。  
 
 <div align='center'>
 <img src="https://raw.githubusercontent.com/fursich/tweetie/master/public/images/screenshots/tweetie_UI_1_auth.png" width='600px'>
