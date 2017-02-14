@@ -6,7 +6,7 @@ class Devise::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCont
     unless @user
       # ユーザが無い場合は作成
       @user = User.create(
-          name:     auth.extra.raw_info.first_name,
+          name:     auth.extra.raw_info.id,
           email:    dummy_email(auth),
           provider: auth.provider,
           provider_token:    auth.credentials.token,
