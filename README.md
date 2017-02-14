@@ -62,7 +62,11 @@ devise/OmniAuthを利用。新規登録・サインイン・登録情報の編�
 
 <div align='center'>
 <img src="https://raw.githubusercontent.com/fursich/tweetie/master/public/images/screenshots/tweetie_UI_2_overall.png" width='800px'> </div>
+<br />
+<br />
 
+<br />
+<br />
 
 <div align='center'>
 <img src="https://raw.githubusercontent.com/fursich/tweetie/master/public/images/screenshots/tweetie_UI_1_auth.png" width='600px'>
