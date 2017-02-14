@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :find_user, only: [:update, :follower_list, :following_list]
+  before_action :find_user, only: [:alt_lock, :follower_list, :following_list]
   before_action :authenticate_user!  #ログインしていない場合はログイン画面に飛ばす
 
   def index
@@ -16,14 +16,14 @@ class UsersController < ApplicationController
 
   end
   
-  def update
+  def alt_lock
     if @user.access_locked?
       @user.unlock_access!
     else
       @user.lock_access!
     end
     
-    redirect_to action: :index
+    redirect_to :back
   end
   
   def follower_list

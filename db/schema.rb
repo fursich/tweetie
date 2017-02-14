@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208052225) do
+ActiveRecord::Schema.define(version: 20170213093032) do
 
   create_table "reactions", force: :cascade do |t|
     t.integer  "emotion",    limit: 1, default: 0, null: false
@@ -67,6 +67,9 @@ ActiveRecord::Schema.define(version: 20170208052225) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false, null: false
+    t.string   "provider"
+    t.string   "provider_token"
+    t.string   "provider_uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

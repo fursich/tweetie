@@ -12,9 +12,9 @@ class User < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true, length: {minimum: 4, maximum: 20}, format: { with: VALID_NAME }
 
   # Include default devise modules. Others available are:
-  # :confirmable, :timeoutable and :omniauthable
+  # :confirmable, :timeoutable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :lockable
+         :recoverable, :rememberable, :trackable, :validatable, :lockable, :omniauthable
 
   validates :image, file_size: { maximum: 500.kilobytes.to_i }  #画像に500kb制限をかける(ただしアップロード後にはじく仕様) 
   validates :profile, presence: true, length: {maximum: 200}    #プロフィールは200文字まで
@@ -26,6 +26,9 @@ class User < ActiveRecord::Base
   end
   def admin?
     !!self.admin
+  end
+  def via_sns?
+    self.provider && self.provider_token && self.provider_uid
   end
   
   def follow!(another_user)

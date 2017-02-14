@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   root to: 'tweets#index'
 
-  devise_for :users, :path_prefix => 'devise'
+  devise_for :users, :path_prefix => 'devise', controllers: {
+    omniauth_callbacks: 'devise/users/omniauth_callbacks'
+  }
   
   resources :tweets do
     collection do
@@ -10,8 +12,9 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :users, only: [:index, :show, :update] do
+  resources :users, only: [:index, :show] do
     member do
+      post 'alt_lock'
       get 'follower_list'
       get 'following_list'
     end
