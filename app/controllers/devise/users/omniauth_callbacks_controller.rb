@@ -3,20 +3,20 @@ class Devise::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCont
   def facebook
     auth = request.env["omniauth.auth"]
     @user = User.where(provider: auth.provider, provider_uid: auth.uid).first
-
     unless @user
       # ユーザが無い場合は作成
       @user = User.create(
-        name:     login_name_via_sns(auth.extra.raw_info.name,auth.provider),
-        email:    dummy_email(auth),
-        provider: auth.provider,
-        provider_token:    auth.credentials.token,
-        provider_uid: auth.uid,
-        password: Devise.friendly_token[0,20],
-        encrypted_password:[*1..9, *'A'..'Z', *'a'..'z'].sample(10).join,
-        profile: '(loggedin via facebook)'
+          name:     auth.extra.raw_info.name,
+          email:    dummy_email(auth),
+          provider: auth.provider,
+          provider_token:    auth.credentials.token,
+          provider_uid: auth.uid,
+          password: Devise.friendly_token[0,20],
+          encrypted_password:[*1..9, *'A'..'Z', *'a'..'z'].sample(10).join,
+          profile: '(loggedin via facebook)'
       )
     end
+
   
     if @user.persisted?
       set_flash_message(:notice, :success, kind: "Facebook") if is_navigational_format?
