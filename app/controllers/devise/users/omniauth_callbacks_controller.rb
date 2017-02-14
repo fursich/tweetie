@@ -24,7 +24,7 @@ class Devise::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCont
     else
       flash[:alert] = 'fail'
       session["devise.facebook_data"] = request.env["omniauth.auth"]
-      redirect_to new_user_registration_url
+      sign_in_and_redirect @user, event: :authentication
     end
   end
 
