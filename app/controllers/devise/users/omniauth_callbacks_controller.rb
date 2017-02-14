@@ -1,7 +1,6 @@
 class Devise::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def facebook
-    # You need to implement the method below in your model (e.g. app/models/user.rb)
     auth = request.env["omniauth.auth"]
     @user = User.where(provider: auth.provider, provider_uid: auth.uid).first
 
@@ -29,7 +28,6 @@ class Devise::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCont
   end
 
   def twitter
-    # You need to implement the method below in your model
     auth = request.env["omniauth.auth"]
     @user = User.where(provider: auth.provider, provider_uid: auth.uid).first
     unless @user
@@ -61,7 +59,7 @@ class Devise::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCont
     "#{auth.provider}-#{auth.uid}@registered-via-sns.temp"
   end
   def login_name_via_sns(name, provider)
-    "#{name}__#{provider}".slice(0,20)
+    "_#{name}_#{provider}".slice(0,20)
   end
 
 end
