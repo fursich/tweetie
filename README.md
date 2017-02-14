@@ -12,34 +12,27 @@ Twitterをイメージした会話用アプリケーションです｡
 <br />
 <br />
 
-ログイン認証､画像アップロード､フォロー/アンフォロー､検索機能など基本的な機能を備えたcrudアプリケーションです｡  
-bootstrap3によるレスポンシブ対応｡  
+ログイン認証､画像アップロード､フォロー/アンフォロー､検索機能など基本的な機能を備えたユーザーコミュニケーション用のcrudアプリケーションです｡  
+Heroku + fog + AWS S3にてデプロイ。レスポンシブ対応｡  
 
 last update:  
 2017/2/14 ソーシャルログイン機能を追加（facebook/twitter）  
 
 <br />
-### ○ 環境
 <br />
-ruby 2.4.0p0  
-Rails 4.2.7.1  
-Cloud 9  
-MacOS + Chrome, iOS (iPhone 6s) + safariで動作確認
-
-(デプロイ環境)  
-Heroku + fog + AWS S3  
 
 ### ○ 使い方  
+<br />
 
 https://tweetie-app.herokuapp.com/
 
-新規登録、または下記のゲストアカウントでログイン可能｡  
+下記のゲストアカウントでログイン可能｡  
 　　
 + ユーザー名: guest@guest.net　　
 + パスワード: guest1　　
   
-Twitter/Facebookアカウントによるログインにも対応。
-（タイトルバーの「設定変更」から退会処理をすることで、SNSアカウントの情報をDBから削除できます）  
+Twitter/Facebookアカウントでもログインできます。
+（ログアウト時に、タイトルバーの「設定変更」から退会処理をすることで、SNSアカウントの情報をDBから削除することが可能）  
 
 
 ### adminモード  
@@ -245,9 +238,23 @@ Twitter/Facebookアカウントによるログインにも対応。
 + carrierwave
 + ransack
 + kaminari/kaminari-bootstrap
-+ fog
++ fog  
++ omniauth  
++ omniauth-facebook  
++ omniauth-twitter  
 + bootstrap-sass
-
++ font-awesome-sass
+  
+### ○ 環境
+  
+ruby 2.4.0p0  
+Rails 4.2.7.1  
+Cloud 9  
+MacOS + Chrome, iOS (iPhone 6s) + safariで動作確認
+  
+(デプロイ環境)  
+Heroku + fog + AWS S3  
+  
 ### 更新履歴
 
 
