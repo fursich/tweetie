@@ -12,7 +12,6 @@ class Devise::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCont
           provider_token:    auth.credentials.token,
           provider_uid: auth.uid,
           password: Devise.friendly_token[0,20],
-          encrypted_password:[*1..9, *'A'..'Z', *'a'..'z'].sample(10).join,
           profile: '(loggedin via facebook)'
       )
     end
@@ -39,7 +38,6 @@ class Devise::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCont
           provider_token:    auth.credentials.token,
           provider_uid: auth.uid,
           password: Devise.friendly_token[0,20],
-          encrypted_password:[*1..9, *'A'..'Z', *'a'..'z'].sample(10).join,
           profile: '(loggedin via twitter)'
       )
     end
