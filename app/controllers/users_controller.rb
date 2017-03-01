@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.includes(:tweets).find(params[:id])
-    @q = @user.tweets.includes(:user).search(params[:q])
+    @q = Tweet.where(user_id: params[:id]).search(params[:q])
     @tweets = @q.result.sort_by_created_date_with(params[:page])
     # オリジナルのTweetだけでなく､返信もあわせて表示･検索対象にする
 

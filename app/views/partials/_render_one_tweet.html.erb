@@ -31,7 +31,7 @@
 
       <% if t.has_parent? %>
         <span class='retweeted_from'>
-          <br / class='visible-xs-inline'>
+          <br class='visible-xs-inline'>
           <%= link_to tweet_path(id: t.parent_tweet.id) do %>
             <%= "@#{t.parent_tweet.user.name}への返信"%>
           <% end %>

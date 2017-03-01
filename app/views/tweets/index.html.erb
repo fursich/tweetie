@@ -18,14 +18,14 @@
         <%= render 'partials/config_options' %>
         
         <div class='tweet-box'>
-          <% @tweets.each do |tweet| %>
+          <% @first_tweets.each do |t| %>
             <div class='tweet-container'>
-              <%= render 'partials/trace_tweets', t: tweet %>
+              <%= render 'partials/trace_tweets', t: t %>
             </div>
           <% end %>
         </div>
         
-        <%= paginate @tweets %>
+        <%= paginate @first_tweets %>
       </div>
 
     </div>

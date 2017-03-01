@@ -9,7 +9,8 @@ class TweetsController < ApplicationController
   def index
     @user_config = UserConfig.find_or_initialize_by(user_id: current_user.id)
 
-    @tweets = Tweet.all.includes(:retweets, :user, :reactions).first_tweets.sort_by_created_date_with(params[:page])
+    @tweets = Tweet.all.includes(:retweets, :user, :reactions).sort_by_created_date_with(params[:page])
+    @first_tweets = @tweets.first_tweets
     # first_tweetsは､オリジナルのTweet(返信ではないもの)だけを返すTweetモデルのscope
     # 検索結果はsearchコントローラーで別に処理｡(返信も検索対象に含めて表示させたいので､処理を分けている)
 
@@ -61,7 +62,10 @@ class TweetsController < ApplicationController
         format.html do
           flash[:alert] = @tweet.errors.full_messages
           init_srch_query
-          @tweets = @q.result.sort_by_created_date_with(params[:page])
+          @user_config = UserConfig.find_or_initialize_by(user_id: current_user.id)
+          @tweets = Tweet.all.includes(:retweets, :user, :reactions).sort_by_created_date_with(params[:page])
+          @first_tweets = @tweets.first_tweets
+
           redirect_to :back
         end
         format.json do
