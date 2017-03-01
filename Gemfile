@@ -48,6 +48,7 @@ gem 'font-awesome-sass'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
@@ -56,6 +57,11 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+  gem 'pry-rails'  # rails console(もしくは、rails c)でirbの代わりにpryを使われる
+  gem 'pry-doc'    # methodを表示
+  gem 'pry-byebug' # デバッグを実施(Ruby 2.0以降で動作する)
+  gem 'pry-stack_explorer' # スタックをたどれる
 end
 
 group :development do

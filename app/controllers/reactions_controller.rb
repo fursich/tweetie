@@ -16,6 +16,10 @@ class ReactionsController < ApplicationController
               else
                 @reaction.destroy
               end
+
+    @emotion_array = create_emotion_array
+
+
     respond_to do |format|
       format.html {redirect_to root_path}
       format.json {render json: render_json}
@@ -46,7 +50,6 @@ class ReactionsController < ApplicationController
   end
   def init_emotions
     @emotions = Reaction.emotions
-    @emotion_array = create_emotion_array
   end
   
 end
