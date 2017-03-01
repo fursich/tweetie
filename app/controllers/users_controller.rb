@@ -30,10 +30,12 @@ class UsersController < ApplicationController
   
   def follower_list
     @users = @user.followers.sort_by_login_date_with(params[:page])
+    render action: :follows
   end
 
   def following_list
     @users = @user.following.sort_by_login_date_with(params[:page])
+    render action: :follows
   end
 
   private

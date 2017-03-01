@@ -10,7 +10,11 @@
       <%= render 'partials/alert' %>
 
       <div class='follow-list-title'>
-        <%= link_to user_path(@user.id) do %>@<%= @user.name %><% end %>がフォロー中
+        <% if params[:action] == 'follower_list' %>
+          <%= link_to user_path(@user.id) do %>@<%= @user.name %><% end %>のフォロワー
+        <% elsif params[:action] == 'following_list' %>
+          <%= link_to user_path(@user.id) do %>@<%= @user.name %><% end %>がフォロー中
+        <% end %>
       </div>
 
       <% @users.each do |user| %>
