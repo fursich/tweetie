@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
 
   mount_uploader :image, UserImageUploader
   
+  scope :sort_by_login_date_with, -> (page_num) do
+    page(page_num).per(10).order('current_sign_in_at DESC')
+  end
+
   def image_url  #イメージファイルが無い場合は､デフォルト画像のパスを渡す
     self.image? ? self.image.url : 'noimage.png'
   end

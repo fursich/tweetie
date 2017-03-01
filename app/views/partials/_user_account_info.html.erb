@@ -7,9 +7,9 @@
 
 
 <div class='user-follow-status'>
-  <%= link_to user_path(u.id) do %><%= u.tweets.count %><% end %>件のツイート　<br class='visible-xs-inline'>
-  <%= link_to following_list_user_path(u.id) do %><%= u.following.count %><% end %>人をフォロー中　<br class='visible-xs-inline'>
-  <%= link_to follower_list_user_path(u.id) do %><%= u.followers.count %><% end %>人のフォロワー
+  <%= link_to user_path(u.id) do %><%= u.tweets.size %><% end %>件のツイート　<br class='visible-xs-inline'>
+  <%= link_to following_list_user_path(u.id) do %><%= u.following.size %><% end %>人をフォロー中　<br class='visible-xs-inline'>
+  <%= link_to follower_list_user_path(u.id) do %><%= u.followers.size %><% end %>人のフォロワー
 </div>
 
 <% if current_user.admin? %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170213093032) do
+ActiveRecord::Schema.define(version: 20170228235753) do
 
   create_table "reactions", force: :cascade do |t|
     t.integer  "emotion",    limit: 1, default: 0, null: false
@@ -39,6 +39,9 @@ ActiveRecord::Schema.define(version: 20170213093032) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "tweets", ["retweet_id"], name: "index_tweets_on_retweet_id"
+  add_index "tweets", ["user_id"], name: "index_tweets_on_user_id"
 
   create_table "user_configs", force: :cascade do |t|
     t.integer  "user_id",                             null: false

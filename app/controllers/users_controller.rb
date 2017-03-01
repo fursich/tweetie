@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!  #ログインしていない場合はログイン画面に飛ばす
 
   def index
-    @users = User.all.includes(:tweets).page(params[:page]).per(10).order('current_sign_in_at DESC')
+    @users = User.all.includes(:tweets).sort_by_login_date_with(params[:page])
 
   end
   
@@ -27,11 +27,11 @@ class UsersController < ApplicationController
   end
   
   def follower_list
-    @users = @user.followers.page(params[:page]).per(10).order('current_sign_in_at DESC')
+    @users = @user.followers.sort_by_login_date_with(params[:page])
   end
 
   def following_list
-    @users = @user.following.page(params[:page]).per(10).order('current_sign_in_at DESC')
+    @users = @user.following.sort_by_login_date_with(params[:page])
   end
 
   private

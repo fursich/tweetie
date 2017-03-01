@@ -36,13 +36,13 @@ class Tweet < ActiveRecord::Base
     def count_reactions   #あるツイートに対するリアクション数をハッシュで返す
         counter={}
         Reaction.emotions.each do |emotion, emotion_id|
-            counter.store(emotion, self.reactions.where(:emotion, emotion).count)
+            counter.store(emotion, self.reactions.where(:emotion, emotion).size)
         end
         return counter
     end
 
     def count_reactions_by_emotion_id (emotion_id)
-        self.reactions.where('emotion=?', emotion_id).count
+        self.reactions.where('emotion=?', emotion_id).size
     end
     
 end

@@ -10,7 +10,7 @@
 
 <%= render 'partials/render_one_tweet', t: t %>
 
-<% if t.retweets.count>0 %>
+<% if t.retweets.size>0 %>
   <div class='row retweet-content'>
     <div class='col-sm-1'></div>
     <div class='col-sm-11 retweet-box'>
