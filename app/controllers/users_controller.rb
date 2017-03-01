@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
+  include Common
 
   before_action :find_user, only: [:alt_lock, :follower_list, :following_list]
   before_action :authenticate_user!  #ログインしていない場合はログイン画面に飛ばす
-
+  before_action :init_emotions
+  
   def index
     @users = User.all.includes(:tweets).sort_by_login_date_with(params[:page])
 
@@ -11,7 +13,7 @@ class UsersController < ApplicationController
   def show
     @user = User.includes(:tweets).find(params[:id])
     @q = @user.tweets.includes(:user).search(params[:q])
-    @tweets = @q.result.page(params[:page]).per(10).order('created_at DESC')
+    @tweets = @q.result.sort_by_created_date_with(params[:page])
     # オリジナルのTweetだけでなく､返信もあわせて表示･検索対象にする
 
   end
@@ -37,5 +39,9 @@ class UsersController < ApplicationController
   private
   def find_user
     @user = User.find(params[:id])
+  end
+  def init_emotions
+    @emotions = Reaction.emotions
+    @emotion_array = create_emotion_array
   end
 end

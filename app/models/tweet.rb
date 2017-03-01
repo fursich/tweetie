@@ -11,6 +11,9 @@ class Tweet < ActiveRecord::Base
     scope :first_tweets, -> do    # オリジナルのTweet(返信ではないもの)だけを返すTweetモデルのscope
         where(retweet_id: nil)
     end
+    scope :sort_by_created_date_with, -> (page_num) do
+        page(page_num).per(10).order('created_at DESC')
+    end
 
     def has_parent?  #リツイートかどうかを返す
         !self.retweet_id.nil?

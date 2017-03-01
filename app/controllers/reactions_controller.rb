@@ -1,12 +1,14 @@
 class ReactionsController < ApplicationController
+  include Common
 
   before_action :authenticate_user!  #ログインしていない場合はログイン画面に飛ばす
+  before_action :init_emotions
 
   def create
     @target_tweet = Tweet.find(params[:tweet_id])
     @reaction = @target_tweet.reactions.find_or_initialize_by(user_id: current_user.id)
     @reaction.emotion = params[:emotion]
-  
+
     @has_emotion = @reaction.changed?
 
     @result = if @has_emotion
@@ -41,6 +43,10 @@ class ReactionsController < ApplicationController
   def reaction_counter_partial
     return false unless @target_tweet.has_any_reactions?
     render_to_string partial: 'partials/reaction_counter', formats: :html, locals: {t: @target_tweet}
+  end
+  def init_emotions
+    @emotions = Reaction.emotions
+    @emotion_array = create_emotion_array
   end
   
 end

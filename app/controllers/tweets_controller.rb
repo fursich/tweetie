@@ -1,13 +1,15 @@
 class TweetsController < ApplicationController
+  include Common
 
   before_action :authenticate_user!  #ログインしていない場合はログイン画面に飛ばす
   before_action :find_tweet, only: [:show, :edit, :update, :destroy]  #params[:id]で指定されたTweetインスタンスをセットする
+  before_action :init_emotions
   before_action :init_srch_query, only: [:index, :show, :edit, :search]  #検索窓用のサーチクエリをセットする
   
   def index
     @user_config = UserConfig.find_or_initialize_by(user_id: current_user.id)
 
-    @tweets = Tweet.all.includes(:retweets, :user, :reactions).first_tweets.page(params[:page]).per(10).order('created_at DESC')
+    @tweets = Tweet.all.includes(:retweets, :user, :reactions).first_tweets.sort_by_created_date_with(params[:page])
     # first_tweetsは､オリジナルのTweet(返信ではないもの)だけを返すTweetモデルのscope
     # 検索結果はsearchコントローラーで別に処理｡(返信も検索対象に含めて表示させたいので､処理を分けている)
 
@@ -15,7 +17,7 @@ class TweetsController < ApplicationController
   end
   
   def search
-    @tweets = @q.result.page(params[:page]).per(10).order('created_at DESC')
+    @tweets = @q.result.sort_by_created_date_with(params[:page])
 
     # サーチ結果から､さらにネストしたサーチはしない(indexからサーチかけた場合と同じ結果になる)
     # (重層サーチする場合は､init_srch_queryをカスタマイズ｡説明を入れないとユーザーが混乱させる可能性あり)
@@ -59,7 +61,7 @@ class TweetsController < ApplicationController
         format.html do
           flash[:alert] = @tweet.errors.full_messages
           init_srch_query
-          @tweets = @q.result.page(params[:page]).per(10).order('created_at DESC')
+          @tweets = @q.result.sort_by_created_date_with(params[:page])
           redirect_to :back
         end
         format.json do
@@ -86,5 +88,10 @@ class TweetsController < ApplicationController
   def init_srch_query
     @q = Tweet.search(params[:q])
   end
+  def init_emotions
+    @emotions = Reaction.emotions
+    @emotion_array = create_emotion_array
+  end
+
 
 end
